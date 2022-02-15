@@ -1,5 +1,7 @@
 # README
 
+![Build Status](https://github.com/saasbook/berkeley-food-collective/actions/workflows/ci.yml/badge.svg)
+
 <a href="https://codeclimate.com/github/saasbook/berkeley-food-collective/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ff954d61efd6582f4f16/test_coverage" /></a>
 
 <a href="https://codeclimate.com/github/saasbook/berkeley-food-collective/maintainability"><img src="https://api.codeclimate.com/v1/badges/ff954d61efd6582f4f16/maintainability" /></a>
