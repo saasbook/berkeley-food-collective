@@ -1,9 +1,9 @@
 # README
 
-[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_Berkeley Food Collective-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-22-GH-saasbook_berkeley-food-collective/main)
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
+
+[![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_Berkeley Food Collective-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-22-GH-saasbook_berkeley-food-collective/main)
 
 Things you may want to cover:
 
