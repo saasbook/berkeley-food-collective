@@ -4,7 +4,7 @@ project:
   teamId: 'Berkeley Food Collective'
   identities:
     pivotal: 'https://www.pivotaltracker.com/projects/2553424'
-    heroku: ''
+    heroku: 'https://berkeley-food-collective.herokuapp.com/'
   members:
     member1:
       name: 'Andrew'
