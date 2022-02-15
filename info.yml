@@ -1,0 +1,32 @@
+project:
+  name: 'berkeley-food-collective'
+  owner: 'CS169L-22'
+  teamId: 'Berkeley Food Collective'
+  identities:
+    pivotal: 'https://www.pivotaltracker.com/projects/2553424'
+    heroku: ''
+  members:
+    member1:
+      name: 'Andrew'
+      surname: 'Mo' 
+      githubUsername: 'andrewmopro'
+      pivotalUsername: 'andrewmo1'
+      herokuEmail: 'andrewmo@berkeley.edu'
+    member2:
+      name: 'Aditya'
+      surname: 'Singh' 
+      githubUsername: 'adityasingh7311'
+      pivotalUsername: 'adityasingh'
+      herokuEmail: 'adityasingh@berkeley.edu'
+    member3:
+      name: 'Roberto'
+      surname: 'Cardenas' 
+      githubUsername: 'Roberto-Cardenas'
+      pivotalUsername: 'ROBERTOCARDENAS1'
+      herokuEmail: 'robertocardenas@berkeley.edu'
+    member4:
+      name: 'Simon'
+      surname: 'Jovanovic' 
+      githubUsername: 'simonjov'
+      pivotalUsername: 'simonjov'
+      herokuEmail: 'simonjov@berkeley.edu'
