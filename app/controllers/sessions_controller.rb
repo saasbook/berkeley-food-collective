@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    redirect_to announcements_path
   end
 
   def destroy
