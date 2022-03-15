@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  category: MyString
+  priority: 1
+  added: 2022-03-14 20:57:50
+  user_add: MyString
+  complete_time: 2022-03-14 20:57:50
+  user_complete: MyString
+  completed: false
+
+two:
+  name: MyString
+  description: MyText
+  category: MyString
+  priority: 1
+  added: 2022-03-14 20:57:50
+  user_add: MyString
+  complete_time: 2022-03-14 20:57:50
+  user_complete: MyString
+  completed: false
