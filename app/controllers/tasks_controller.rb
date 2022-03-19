@@ -6,5 +6,6 @@ class TasksController < ApplicationController
   end
 
   def create
+    redirect_to tasks_path
   end
 end

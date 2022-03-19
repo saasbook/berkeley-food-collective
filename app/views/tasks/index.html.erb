@@ -35,7 +35,66 @@
           <option>Inventory</option>
         </select>
       </div>
-      <button type="button" class="btn btn-sm btn-danger">Add Task +</button>
+      <button type="button" class="btn btn-sm btn-danger" data-bs-toggle = "modal" data-bs-target = "#add-task-modal">Add Task +</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="add-task-modal" tabindex="-1" aria-labelledby="AddTaskModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class = "d-flex justify-content-end">
+          <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
+        </div>
+        <%= form_tag tasks_path, :method => "post", :class => "" do %>
+          <div class = "mb-2">
+            <%= label_tag :task_name, "Task Name", class: "form-label" %>
+            <%= text_field_tag :task_name, nil, :placeholder => "New Task...", :class => "form-control" %>
+          </div>
+          <div class = "mb-2">
+            <%= label_tag :task_description, "Task Description", class: "form-label" %>
+            <%= text_area_tag :task_description, nil, :placeholder => "Add new task description...", :class => "form-control" %>
+          </div>
+          <div class = "mb-2">
+            <%= label_tag :task_category, "Task Category", class: "form-label" %>
+            <%= select_tag :task_category, raw("<option>Inventory</option><option>Register</option>"), :class => "form-control" %>
+          </div>
+          <div class = "d-flex justify-content-center">
+            <%= label_tag nil, "Task Priority", class: "form-label" %>
+          </div>
+          <div class = "mb-3 d-flex justify-content-center">
+            <div class="form-check form-check-inline">
+              <%= radio_button_tag :priority, 1, false, class: "form-check-input" %>
+              <%= label_tag :priority_1, 1, class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= radio_button_tag :priority, 2, false, class: "form-check-input" %>
+              <%= label_tag :priority_2, 2, class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= radio_button_tag :priority, 3, false, class: "form-check-input" %>
+              <%= label_tag :priority_3, 3, class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= radio_button_tag :priority, 4, false, class: "form-check-input" %>
+              <%= label_tag :priority_4, 4, class: "form-check-label" %>
+            </div>
+            <div class="form-check form-check-inline">
+              <%= radio_button_tag :priority, 5, false, class: "form-check-input" %>
+              <%= label_tag :priority_5, 5, class: "form-check-label" %>
+            </div>
+          </div>
+          <div class = "mb-2 d-flex justify-content-center">
+            <%= submit_tag "Add Task +", :class => "btn btn-danger" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
