@@ -29,11 +29,6 @@ jobs:
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
         
-    - name: run Cucumber tests and capture coverage
-      run: |
-        bundle exec cucumber
-        ./cc-test-reporter format-coverage --input-type simplecov --output coverage/codeclimate.$SUITE.json
-        
     - name: run RSpec tests and capture coverage
       run: |
         bundle exec rspec
