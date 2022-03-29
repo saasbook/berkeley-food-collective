@@ -11,6 +11,7 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 3.0.3
+        bundler-cache: true
         
     - name: Setup CodeClimate test-reporter
       run: |
