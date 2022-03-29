@@ -22,10 +22,6 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-    
-    - name: Set up database
-      run: |
-        bundle exec rake db:create db:migrate
         
     - name: run RSpec tests and capture coverage
       run: |
