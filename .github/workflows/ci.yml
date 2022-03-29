@@ -46,6 +46,6 @@ jobs:
     - name: Publish code coverage
       run: |
         export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
-        ./cc-test-reporter sum-coverage coverage/codeclimate.json
+        ./cc-test-reporter sum-coverage coverage/codeclimate.*.json
         ./cc-test-reporter upload-coverage -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
         ./cc-test-reporter after-build -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
