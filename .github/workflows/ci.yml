@@ -6,12 +6,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    
     - name: Install Ruby (3.0)
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 3.0.3
+        
     - name: Build and test with RSpec
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
         bundle exec rspec
+        
+    - name: Run bundle install
+      run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 2
+          
+    - name: Setup CodeClimate test-reporter
+      run: |
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
+        
+    - name: run Cucumber tests and capture coverage
+      run: |
+        bundle exec cucumber
+        ./cc-test-reporter format-coverage --input-type simplecov --output coverage/codeclimate.$SUITE.json
+        
+    - name: run RSpec tests and capture coverage
+      run: |
+        bundle exec rspec
+        ./cc-test-reporter format-coverage --input-type simplecov --output coverage/codeclimate.$SUITE.json 
+  
+    - name: Publish code coverage
+      run: |
+        export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+        ./cc-test-reporter sum-coverage coverage/codeclimate.*.json
+        ./cc-test-reporter upload-coverage -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
+        ./cc-test-reporter after-build -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
