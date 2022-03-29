@@ -23,10 +23,25 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
         
-    #- name: run RSpec tests and capture coverage
-    #  run: |
-    #    bundle exec rspec
-    #    ./cc-test-reporter format-coverage --output coverage/codeclimate.json --input-type simplecov 
+    - name: Setup PostgreSQL
+      run: |
+        sudo apt-get install postgresql libpq-dev
+        sudo service postgresql start
+        sudo -u postgres createuser --superuser "$USER"
+        
+    - name: Setup database
+      run: |
+        bundle exec rake db:create db:migrate
+        
+    - name: run RSpec tests and capture coverage
+      run: |
+        bundle exec rspec
+        ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
+        
+    - name: run Cucumber tests and capture coverage
+      run: |
+        bundle exec cucumber
+        ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
   
     - name: Publish code coverage
       run: |
