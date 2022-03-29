@@ -26,7 +26,7 @@ jobs:
     - name: run RSpec tests and capture coverage
       run: |
         bundle exec rspec
-        ./cc-test-reporter format-coverage --input-type simplecov --output coverage/codeclimate.$SUITE.json 
+        ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
   
     - name: Publish code coverage
       run: |
