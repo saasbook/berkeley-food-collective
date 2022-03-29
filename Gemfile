@@ -56,7 +56,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  
+
   # References to sqlite gem to only appear in dev/test groups
   gem 'sqlite3'
 
@@ -73,4 +73,11 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rspec'
+  # Added from cue-to-cue assignment
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'simplecov', :require => false
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # basic imperative step defs like "Then I should see..."
+  gem 'database_cleaner' # required by Cucumber
 end
