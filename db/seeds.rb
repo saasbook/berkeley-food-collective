@@ -16,3 +16,5 @@ userObjects = [
     email: "robertocardenas@berkeley.edu"
   }
 ]
+
+User.create(userObjects)
