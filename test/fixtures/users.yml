@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
+roberto:
+  name: Roberto Cardenas
+  email: robertocardenas@bsfc.coop
 
-two:
-  name: MyString
-  email: MyString
+andrew:
+  name: Andrew Mo
+  email: andrewmo@bsfc.coop

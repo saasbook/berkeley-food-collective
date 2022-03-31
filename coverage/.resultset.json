@@ -1,26 +1,90 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/andrewmo/berkeley-food-collective/app/models/task.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/Rakefile": {
         "lines": [
+          null,
+          null,
+          null,
           1,
+          null,
+          1
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/lib/tasks/cucumber.rake": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
           null
         ]
       },
-      "/Users/andrewmo/berkeley-food-collective/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/andrewmo/berkeley-food-collective/app/models/user.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/andrewmo/berkeley-food-collective/app/channels/application_cable/channel.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -30,7 +94,7 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/channels/application_cable/connection.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -40,7 +104,7 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/controllers/announcements_controller.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/announcements_controller.rb": {
         "lines": [
           0,
           0,
@@ -56,24 +120,8 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/controllers/application_controller.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/application_controller.rb": {
         "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/andrewmo/berkeley-food-collective/app/controllers/sessions_controller.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
           0,
           0,
           0
@@ -81,7 +129,32 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/controllers/tasks_controller.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/sessions_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/tasks_controller.rb": {
         "lines": [
           0,
           0,
@@ -98,7 +171,7 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/helpers/announcements_helper.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/announcements_helper.rb": {
         "lines": [
           0,
           0
@@ -106,7 +179,7 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/helpers/application_helper.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/application_helper.rb": {
         "lines": [
           0,
           0
@@ -114,7 +187,26 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/helpers/sessions_helper.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/sessions_helper.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/tasks_helper.rb": {
         "lines": [
           0,
           0
@@ -122,15 +214,7 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/helpers/tasks_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/andrewmo/berkeley-food-collective/app/jobs/application_job.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -143,10 +227,35 @@
         "branches": {
         }
       },
-      "/Users/andrewmo/berkeley-food-collective/app/mailers/application_mailer.rb": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/models/application_record.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/models/task.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/models/user.rb": {
+        "lines": [
           0,
           0
         ],
@@ -154,6 +263,171 @@
         }
       }
     },
-    "timestamp": 1648587395
+    "timestamp": 1648689655
+  },
+  "Cucumber Features": {
+    "coverage": {
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/models/user.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/sessions_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          null,
+          2,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/announcements_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/sessions_helper.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/helpers/tasks_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/announcements_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/channels/application_cable/channel.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/controllers/tasks_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/roberto/Documents/berkeley/cs169L/berkeley-food-collective/app/models/task.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1648690116
   }
 }
