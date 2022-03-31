@@ -2,12 +2,12 @@
   <h5 class = "text-center mb-3">Welcome to the Berkeley Student Food Collective App!</h5>
   <small class = "text-center mb-1">Please enter your email address to continue</small>
 
-  <%= form_tag login_path, :method => "post", :class => "d-flex flex-column justify-content-center align-items-center" do %>
+  <%= form_for :session, url: login_path, class: "d-flex flex-column justify-content-center align-items-center"  do |f| %>
     <div class = "mb-2">
-      <%= email_field_tag :email, nil, :placeholder => "member@bsfc.coop", :class => "form-control fs-6ç" %>
+      <%= f.email_field :email, class: "form-control fs-6", placeholder: "member@bsfc.coop" %>
     </div>
     <div class = "mb-2">
-      <%= submit_tag "Login", :class => "btn btn-danger" %>
+      <%= f.submit "Login", class: "btn btn-danger" %>
     </div>
   <% end %>
 
