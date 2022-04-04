@@ -14,6 +14,10 @@ userObjects = [
   {
     name: "Roberto Cardenas",
     email: "robertocardenas@berkeley.edu"
+  },
+  {
+    name: "Simon Jovanovic",
+    email: "simonjov@berkeley.edu"
   }
 ]
 
