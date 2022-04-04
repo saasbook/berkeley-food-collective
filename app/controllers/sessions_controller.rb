@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def airtable_update
-    User.populate_from_airtable
+    flash[:danger] = "Function is getting called!"
     redirect_to login_path
   end
 
