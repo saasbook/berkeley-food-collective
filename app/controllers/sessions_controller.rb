@@ -14,6 +14,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def airtable_update
+    User.populate_from_airtable
+  end
+
   def destroy
   end
 end
