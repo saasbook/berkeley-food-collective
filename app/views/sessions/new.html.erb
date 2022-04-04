@@ -9,12 +9,9 @@
     <div class = "mb-2">
       <%= f.submit "Login", class: "btn btn-danger" %>
     </div>
-    <div class = "mb-2">
-      <%= f.submit "Login", class: "btn btn-danger" %>
-    </div>
   <% end %>
-  <div>
-    <%= button_to "Update Users", update_path, class: "btn btn-danger" %>
+  <div class = "btn btn-danger">
+    <%= User.populate_from_airtable %>
   </div>
 
   <!-- Bootstrap JS -->
