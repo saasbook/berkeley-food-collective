@@ -21,4 +21,20 @@ userObjects = [
   }
 ]
 
+taskObjects = [
+  {
+    name: "Andrew Mo",
+    email: "andrewmo@berkeley.edu"
+  },
+  {
+    name: "Roberto Cardenas",
+    email: "robertocardenas@berkeley.edu"
+  },
+  {
+    name: "Simon Jovanovic",
+    email: "simonjov@berkeley.edu"
+  }
+]
+
 User.create(userObjects)
+User.create(taskObjects)
