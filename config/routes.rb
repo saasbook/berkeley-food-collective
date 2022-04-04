@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  post 'update' => 'sessions#airtable_update'
+  get 'update', to: 'sessions#airtable_update', as: 'update'
   delete 'logout' => 'sessions#destroy'
   resources :announcements
   resources :tasks
