@@ -117,7 +117,7 @@
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%#= check_box_tag :checkoff_task %>
-          <%= button_to "Checkmark", checkmark_path(:task => task), data: { confirm: "Are you sure?" } %>
+          <%= button_to "Complete", checkmark_path(:task => task), class: "btn btn-success" %>
         </div>
 
         <!-- Right side of panel -->
@@ -160,7 +160,7 @@
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%#= check_box_tag :checkoff_task, 1, true %>
-          <%= button_to "Checkmark", checkmark_path(:task => task), data: { confirm: "Are you sure?" } %>
+          <%= button_to "Undo Completion", checkmark_path(:task => task), class: "btn btn-danger" %>
         </div>
 
         <!-- Right side of panel -->
