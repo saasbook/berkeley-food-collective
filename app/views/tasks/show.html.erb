@@ -1,8 +1,10 @@
-Tasks
+<div>Tasks</div>
 <%= @tasks.each do |task| %>
   <div><% task.name %></div>
 <% end %>
-Users
-<%= @users.each do |user| %>
-  <div><% user %></div>
-<% end %>
+<div>Users</div>
+<% @users %>
+
+<%#= @users.each do |user| %>
+<!--  <div><%# user %></div>-->
+<%# end %>
