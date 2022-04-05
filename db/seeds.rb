@@ -8,16 +8,16 @@
 
 userObjects = [
   {
-    name: "Andrew Mo",
-    email: "andrewmo@berkeley.edu"
+    name: 'Andrew Mo',
+    email: 'andrewmo@berkeley.edu'
   },
   {
-    name: "Roberto Cardenas",
-    email: "robertocardenas@berkeley.edu"
+    name: 'Roberto Cardenas',
+    email: 'robertocardenas@berkeley.edu'
   },
   {
-    name: "Simon Jovanovic",
-    email: "simonjov@berkeley.edu"
+    name: 'Simon Jovanovic',
+    email: 'simonjov@berkeley.edu'
   }
 ]
 
