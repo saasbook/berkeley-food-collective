@@ -10,8 +10,7 @@ class TasksController < ApplicationController
   end
 
   def checkmark
-    # Task.checkmark
-    flash[:success] = 'User Database Updated!'
+    Task.checkmark
     redirect_to tasks_path
   end
 
