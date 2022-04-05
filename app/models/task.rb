@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   end
 
   def checkmarker(task)
-    @task = Task.find(task)
+    @task = Task.first
     @task.completed = !@task.completed
   end
 end
