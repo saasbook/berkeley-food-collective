@@ -9,8 +9,9 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
-  def checkmark(task)
-    Task.checkmark(task)
+  def checkmark
+    @task = params[:task]
+    Task.checkmark(@task)
     redirect_to tasks_path
   end
 
