@@ -26,7 +26,7 @@ class TasksController < ApplicationController
     new_task.name = params[:task_name]
     new_task.description = params[:task_description]
     new_task.category = params[:task_category]
-    new_task.priority = params[:task_priority]
+    # new_task.priority = params[:task_priority] add task priority somehow
     new_task.added = DateTime.now
     new_task.user_add = User.find(params[:user]).name
     new_task.completed = false
