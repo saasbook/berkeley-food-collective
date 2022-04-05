@@ -160,7 +160,7 @@
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%#= check_box_tag :checkoff_task, 1, true %>
-          <%= button_to "Undo Completion", checkmark_path(:task => task), class: "btn btn-danger" %>
+          <%= button_to "Undo", checkmark_path(:task => task), class: "btn btn-danger" %>
         </div>
 
         <!-- Right side of panel -->
