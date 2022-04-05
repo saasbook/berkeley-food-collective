@@ -11,7 +11,7 @@ class TasksController < ApplicationController
 
   def checkmark
     @task = params[:task]
-    Task.checkmark(@task)
+    checkmarker(@task)
     redirect_to tasks_path
   end
 
