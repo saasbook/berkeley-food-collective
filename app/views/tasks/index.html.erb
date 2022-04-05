@@ -106,12 +106,16 @@
 <div class="center">
   <h5>Incomplete Tasks</h5>
 </div>
+<% @count = 0 %>
 <% @tasks.each do |task| %>
   <% unless task.completed %>
+    <% @count = 1 %>
     <!-- Tasks div -->
     <div id="tasks-div" class="container">
       <!-- Task panel -->
-      <div class="task-panel row px-1 py-1 border-bottom border-top border-dark">
+      <% if @count == 0 %>
+        <div class="task-panel row px-1 py-1 border-bottom border-top border-dark">
+      <% end %>
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%=   check_box_tag :checkoff_task  %>
@@ -146,12 +150,15 @@
 <div class="center">
   <h5>Completed Tasks</h5>
 </div>
+<% @count = 0 %>
 <% @tasks.each do |task| %>
   <% if task.completed %>
     <!-- Tasks div -->
     <div id="tasks-div" class="container">
       <!-- Task panel -->
-      <div class="task-panel row px-1 py-1 border-bottom border-top border-dark">
+      <% if @count == 0 %>
+        <div class="task-panel row px-1 py-1 border-bottom border-top border-dark">
+      <% end %>
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%=  check_box_tag :checkoff_task %>
