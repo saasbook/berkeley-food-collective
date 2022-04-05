@@ -23,36 +23,36 @@ userObjects = [
 
 taskObjects = [
   {
-    name: 'try 1',
-    description: '',
-    category: '',
+    name: 'clean up',
+    description: 'please clean the room',
+    category: 'Cleaning',
     priority: 0,
     added: DateTime.new(2001, 2, 3, 4, 5, 6),
-    user_add: '',
+    user_add: 'Roberto',
     complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
-    user_complete: '',
+    user_complete: 'Melody',
     completed: true
   },
   {
-    name: 'try 2',
-    description: '',
-    category: '',
+    name: 'fill pantry',
+    description: 'stock the pantry with tomatoes',
+    category: 'Inventory',
     priority: 0,
     added: DateTime.new(2001, 2, 3, 4, 5, 6),
-    user_add: '',
+    user_add: 'Simon',
     complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
-    user_complete: '',
+    user_complete: 'Aditya',
     completed: true
   },
   {
-    name: 'try 3',
-    description: '',
-    category: '',
+    name: 'make app',
+    description: 'make the app for BSFC',
+    category: 'Engineering',
     priority: 0,
     added: DateTime.new(2001, 2, 3, 4, 5, 6),
-    user_add: '',
+    user_add: 'Armando',
     complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
-    user_complete: '',
+    user_complete: 'Us',
     completed: true
   }
 ]
