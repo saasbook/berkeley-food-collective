@@ -21,5 +21,42 @@ userObjects = [
   }
 ]
 
+taskObjects = [
+  {
+    name: 'try 1',
+    description: '',
+    category: '',
+    priority: 0,
+    added: DateTime.new(2001, 2, 3, 4, 5, 6),
+    user_add: '',
+    complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
+    user_complete: '',
+    completed: true
+  },
+  {
+    name: 'try 2',
+    description: '',
+    category: '',
+    priority: 0,
+    added: DateTime.new(2001, 2, 3, 4, 5, 6),
+    user_add: '',
+    complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
+    user_complete: '',
+    completed: true
+  },
+  {
+    name: 'try 3',
+    description: '',
+    category: '',
+    priority: 0,
+    added: DateTime.new(2001, 2, 3, 4, 5, 6),
+    user_add: '',
+    complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
+    user_complete: '',
+    completed: true
+  }
+]
+
 
 User.create(userObjects)
+Task.create(taskObjects)
