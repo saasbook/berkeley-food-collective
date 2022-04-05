@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   end
 
   def checkmark
-    @task = Task.find(params[:task])
+    @task = Task.find(params[:task.to_i])
     @task.completed = !@task.completed
     redirect_to tasks_path
   end
