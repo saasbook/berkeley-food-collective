@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     task.completed = !task.completed
     user = User.find(params[:user])
     task.user_complete = user.name
-    task.complete_time = DateTime.now.new_offset("7")
+    task.complete_time = DateTime.now.change(:offset => '+0700')
     task.save!
     redirect_to tasks_path
   end
