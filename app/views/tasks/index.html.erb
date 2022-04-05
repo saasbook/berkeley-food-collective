@@ -55,7 +55,7 @@
         <div class = "d-flex justify-content-end">
           <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
         </div>
-        <%= form_tag tasks_path, :method => "post", :class => "" do %>
+        <%= form_tag tasks_create_path, :method => "post", :class => "" do %>
           <div class = "mb-2">
             <%= label_tag :task_name, "Task Name", class: "form-label" %>
             <%= text_field_tag :task_name, nil, :placeholder => "New Task...", :class => "form-control" %>
