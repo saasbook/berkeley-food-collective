@@ -160,7 +160,7 @@
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%#= check_box_tag :checkoff_task, 1, true %>
-          <%= button_to "Checkmark", checkmark_path(:task => task), data: { confirm: "Are you sure?" } %>
+          <%= link_to "Checkmark", checkmark_path(:task => task), method: post, data: { confirm: "Are you sure?" } %>
         </div>
 
         <!-- Right side of panel -->
