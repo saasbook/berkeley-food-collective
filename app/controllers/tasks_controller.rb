@@ -4,13 +4,12 @@ class TasksController < ApplicationController
     @users = User.all
   end
 
-  def clear_tasks
+  def clear
     Task.clear_tasks
     redirect_to tasks_path
   end
 
-  def new
-  end
+  def new; end
 
   def create
     redirect_to tasks_path
