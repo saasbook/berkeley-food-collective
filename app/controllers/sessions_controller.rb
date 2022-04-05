@@ -14,12 +14,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  def airtable_update
-    flash[:success] = "User Database Updated!" # might want to make flash message green!
-    User.populate_from_airtable
-    redirect_to login_path
-  end
-
   def destroy
   end
 end
