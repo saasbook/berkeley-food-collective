@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   end
 
   def self.checkmark(task)
-    @task = task
-    Task.find(@task).completed = !Task.find(@task).completed
+    @task = Task.find(task)
+    @task.completed = !@task.completed
   end
 end
