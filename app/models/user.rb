@@ -7,7 +7,6 @@ class User < ApplicationRecord
     @@records.each do |record|
       User.create({ name: record[:name], email: record[:email] })
     end
-
   end
 
 end
