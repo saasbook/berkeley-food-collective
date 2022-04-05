@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   post 'update' => 'user#airtable_update'
   post 'tasks/clear' => 'tasks#clear'
-  # post 'checkmark' => 'tasks#checkmark'
+  post 'checkmark' => 'tasks#checkmark'
   delete 'logout' => 'sessions#destroy'
   resources :announcements
   resources :tasks
