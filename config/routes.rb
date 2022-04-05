@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   post 'update' => 'user#airtable_update'
+  post 'clear_tasks' => 'tasks#clear_tasks'
   delete 'logout' => 'sessions#destroy'
   resources :announcements
   resources :tasks
