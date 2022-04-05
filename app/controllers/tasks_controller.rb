@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     task.completed = !task.completed
     user = User.find(params[:user])
     task.user_complete = user.name
-    task.complete_time = DateTime.now.change(:offset => '+0700')
+    task.complete_time = DateTime.now.in_time_zone(ActiveSupport::TimeZone.new("Pacific Time (US & Canada)"))
     task.save!
     redirect_to tasks_path
   end
