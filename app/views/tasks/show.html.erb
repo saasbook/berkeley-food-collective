@@ -3,8 +3,6 @@
   <div><% task.name %></div>
 <% end %>
 <div>Users</div>
-<div><% @users.to_s %></div>
-
-<%#= @users.each do |user| %>
-<!--  <div><%# user %></div>-->
-<%# end %>
+<%= @users.each do |user| %>
+  <div><% user %></div>
+<% end %>
