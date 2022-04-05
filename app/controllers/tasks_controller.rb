@@ -10,6 +10,7 @@ class TasksController < ApplicationController
   end
 
   def checkmark
+    # Task.checkmark
     redirect_to tasks_path
   end
 
