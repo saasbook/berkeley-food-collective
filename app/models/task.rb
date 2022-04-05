@@ -5,6 +5,6 @@ class Task < ApplicationRecord
 
   def self.checkmarker
     @task = Task.first
-    @task.completed = !@task.completed
+    @task.completed = true
   end
 end
