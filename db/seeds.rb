@@ -42,7 +42,7 @@ taskObjects = [
     user_add: 'Simon',
     complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
     user_complete: 'Aditya',
-    completed: true
+    completed: false
   },
   {
     name: 'make app',
