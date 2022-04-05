@@ -103,7 +103,9 @@
 </div>
 
 
-<h5>Incomplete Tasks</h5>
+<div class="center">
+  <h5>Incomplete Tasks</h5>
+</div>
 <% @tasks.each do |task| %>
   <% unless task.completed %>
     <!-- Tasks div -->
@@ -138,7 +140,12 @@
     </div>
   <% end %>
 <% end %>
-<h5>Completed Tasks</h5>
+
+
+
+<div class="center">
+  <h5>Completed Tasks</h5>
+</div>
 <% @tasks.each do |task| %>
   <% if task.completed %>
     <!-- Tasks div -->
