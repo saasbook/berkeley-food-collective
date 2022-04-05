@@ -3,7 +3,7 @@ class Task < ApplicationRecord
     Task.delete_all
   end
 
-  def self.checkmark(task)
+  def checkmark(task)
     @task = Task.find(task)
     @task.completed = !@task.completed
   end
