@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  def clear_tasks
+  def self.clear_tasks
     Task.delete_all
   end
 end
