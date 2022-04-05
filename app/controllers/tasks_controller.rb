@@ -6,7 +6,8 @@ class TasksController < ApplicationController
   end
 
   def show
-    @tasks ||= Task.all
+    @tasks = Task.all
+    @users = User.all
   end
 
   def create
