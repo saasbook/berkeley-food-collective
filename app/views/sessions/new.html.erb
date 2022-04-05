@@ -14,7 +14,7 @@
     <%= button_to "Update Users", update_path, class: "btn btn-danger" %>
   </div>
   <% for i in 0..9 do %>
-    <div><%= i %></div>
+    <div><%= @tasks[i].name %></div>
   <% end %>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
