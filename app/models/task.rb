@@ -6,8 +6,8 @@ class Task < ApplicationRecord
     Task.delete_all
   end
 
-  def checkmarks(task)
-    @task = Task.find(task)
+  def checkmarks
+    @task = Task.find(13)
     @task.completed = !@task.completed
   end
 end
