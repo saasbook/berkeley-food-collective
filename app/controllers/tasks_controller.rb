@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     task.completed = !task.completed
     user = User.find(params[:user])
     task.user_complete = user.name
-    task.complete_time = DateTime.now
+    task.complete_time = DateTime.current
     task.save!
     redirect_to tasks_path
   end
