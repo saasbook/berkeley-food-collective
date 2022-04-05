@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyString
+  announcementtime: 2022-04-01 15:24:55
+  audience: MyString
+  urgency: MyString
+
+two:
+  message: MyString
+  announcementtime: 2022-04-01 15:24:55
+  audience: MyString
+  urgency: MyString
