@@ -5,8 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+User.delete_all
+Task.delete_all
 
-userObjects = [
+
+user_objects = [
   {
     name: 'Andrew Mo',
     email: 'andrewmo@berkeley.edu'
@@ -21,7 +24,7 @@ userObjects = [
   }
 ]
 
-taskObjects = [
+task_objects = [
   {
     name: 'clean up',
     description: 'please clean the room',
@@ -58,5 +61,5 @@ taskObjects = [
 ]
 
 
-User.create(userObjects)
-Task.create(taskObjects)
+User.create(user_objects)
+Task.create(task_objects)
