@@ -6,10 +6,7 @@ class TasksController < ApplicationController
   end
 
   def show
-  end
-
-  def tasks
-    @tasks ||= Task.find(:all)
+    @tasks ||= Task.all
   end
 
   def create
