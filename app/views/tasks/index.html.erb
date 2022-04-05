@@ -102,33 +102,41 @@
   </div>
 </div>
 
-<!-- Tasks div -->
-<div id = "tasks-div" class = "container">
-  <!-- Task panel -->
-  <div class = "task-panel row px-1 py-1 border-bottom border-top border-dark">
-    <!-- Checkbox -->
-    <div class = "col-1 d-flex flex-column justify-content-center align-items-center">
-      <%= check_box_tag :checkoff_task %>
-    </div>
-
-    <!-- Right side of panel -->
-    <div class = "col-11 ps-4">
-      <div class = "d-flex justify-content-between align-items-center">
-        <h5 class = "fw-bold m-0">
-          This is a task!
-        </h5>
-        <span class="badge bg-success">Inventory</span>
+<% @tasks.each do |task| %>
+  <!-- Tasks div -->
+  <div id = "tasks-div" class = "container">
+    <!-- Task panel -->
+    <div class = "task-panel row px-1 py-1 border-bottom border-top border-dark">
+      <!-- Checkbox -->
+      <div class = "col-1 d-flex flex-column justify-content-center align-items-center">
+        <%= check_box_tag :checkoff_task %>
       </div>
-      <p class = "fw-lighter small m-0"><small>Completed by Roberto at 10:10am 12/12/12</small></p>
-      <p class = "fw-lighter small m-0"><small>Posted by Melody 9:00am 12/12/12</small></p>
-      <p class = "m-0">
-        <small>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </small>
-      </p>
+
+      <!-- Right side of panel -->
+      <div class = "col-11 ps-4">
+        <div class = "d-flex justify-content-between align-items-center">
+          <h5 class = "fw-bold m-0">
+            <%= task.name %>
+          </h5>
+          <span class="badge bg-success">
+            <%= task.category %>
+          </span>
+        </div>
+        <p class = "fw-lighter small m-0"><small>
+          Completed by <%= task.user_complete %> at <%= task.complete_time %>
+        </small></p>
+        <p class = "fw-lighter small m-0"><small>
+          Posted by <%= task.user_add %> at <%= task.added %>
+        </small></p>
+        <p class = "m-0">
+          <small>
+            <%= task.description %>
+          </small>
+        </p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
