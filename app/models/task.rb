@@ -3,7 +3,7 @@ class Task < ApplicationRecord
     Task.delete_all
   end
 
-  def checkmarker(task)
+  def self.checkmarker
     @task = Task.first
     @task.completed = !@task.completed
   end
