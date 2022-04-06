@@ -36,3 +36,7 @@
 **/.DS_Store
 
 .idea/
+
+coverage/.last_run.json
+coverage/.resultset.json
+coverage/coverage.json
