@@ -11,4 +11,8 @@ module TasksHelper
       'text-primary'
     end
   end
+
+  def priority_visualizer(priority)
+    '!' * priority
+  end
 end
