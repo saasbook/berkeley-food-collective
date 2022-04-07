@@ -1,4 +1,5 @@
 function myFunction(task) {
-    const popup = document.getElementById("myPopup"+task);
+    const task_id = "myPopup" + task
+    const popup = document.getElementById(task_id);
     popup.classList.toggle("show");
 }
