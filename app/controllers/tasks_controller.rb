@@ -35,5 +35,14 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def filter
+    category = params[:category]
+    @tasks = if category == 'All Categories'
+               Task.all
+             else
+               Task.find_by { |task| task.category == category }
+    end
+    redirect_to tasks_path
+  end
 
 end
