@@ -37,7 +37,4 @@
 
 .idea/
 
-coverage/.last_run.json
-coverage/.resultset.json
-coverage/coverage.json
-coverage/index.html
+coverage/
