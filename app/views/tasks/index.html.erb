@@ -36,7 +36,7 @@
         <select class = "border-0 bg-light rounded text-secondary">
           <option selected>None</option>
           <% @categories.each do |category| %>
-            <option><%= category %>></option>
+            <option><%= category.category %></option>
           <% end %>
         </select>
       </div>
