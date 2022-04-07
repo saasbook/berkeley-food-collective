@@ -35,9 +35,8 @@ class TasksController < ApplicationController
   end
 
   def convert_priority(priority)
-    unless priority in (1...3)
-      return 0
-    end
+    return 0 unless priority in (1...3)
+
     ret_str = ''
     (1..priority).each do |_|
       ret_str += '!'
