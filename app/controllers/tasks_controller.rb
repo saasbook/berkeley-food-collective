@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    @tasks = Task.all.sort_by(&:priority)
     @users = User.all
   end
 
@@ -34,27 +34,16 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
-  def convert_priority(priority)
-    return 0 unless priority in (1...3)
-
-    ret_str = ''
-    (1..priority).each do |_|
-      ret_str += '!'
-    end
-    ret_str
-  end
-
   def priority_color(priority)
-    flash[:success] = 'It runs'
-    # case priority
-    # when 1
-    #   'text-success'
-    # when 2
-    #   'text-warning'
-    # when 3
-    #   'text-danger'
-    # else
-    #   'text-primary'
-    # end
+    case priority
+    when 1
+      'text-success'
+    when 2
+      'text-warning'
+    when 3
+      'text-danger'
+    else
+      'text-primary'
+    end
   end
 end
