@@ -173,7 +173,7 @@
             Completed by <%=  task.user_complete  %> at <%= task.complete_time %>
           </small></p>
           <p class="fw-lighter small m-0"><small>
-            Posted by <%=  task.user_add  %> at <%=  task.added  %>
+            Posted by <%= task.user_add %> at <%=  task.added  %>
           </small></p>
           <p class="m-0">
             <small>
@@ -186,7 +186,7 @@
             <%=   task.category  %>
           </span>
           <h1>
-            !!!
+            <%= task.priority %>
           </h1>
         </div>
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
