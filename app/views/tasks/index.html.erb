@@ -10,8 +10,10 @@
         <li class = "nav-item">
           <small style = "color: white;">Welcome <%= current_user.name %></small>
         </li>
-        < <li class = "nav-item">
+        <li class = "nav-item">
+          <small style = "color: white;">
           <%= link_to "Log Out", logout_path, class: "nav-link text-light" %>
+          </small>
         </li>
       </ul>
     </div>
