@@ -35,7 +35,7 @@ class TasksController < ApplicationController
   end
 
   def convert_priority(priority)
-    if priority.nil?
+    unless priority in (1...3)
       return 0
     end
     ret_str = ''
@@ -46,14 +46,15 @@ class TasksController < ApplicationController
   end
 
   def priority_color(priority)
-    if priority.nil?
-      'text-primary'
-    elsif priority == 1
+    case priority
+    when 1
       'text-success'
-    elsif priority == 2
+    when 2
       'text-warning'
-    else
+    when 3
       'text-danger'
+    else
+      'text-primary'
     end
   end
 end
