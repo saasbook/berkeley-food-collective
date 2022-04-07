@@ -109,6 +109,9 @@
       <div class="task-panel row px-1 py-1 border-bottom px-1<%= @first ? " border-top" : "" %> border-dark">
         <% @first = false %>
         <!-- Checkbox -->
+        <div class = 'col-1'>
+          &nbsp
+        </div>
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%= button_to "✔️", checkmark_path(:task => task, :user => current_user), class: "btn btn-success" %>
         </div>
@@ -139,6 +142,9 @@
         </div>
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <div class = 'triple-dot-menu'></div>
+        </div>
+        <div class = 'col-1'>
+          &nbsp
         </div>
       </div>
     </div>
