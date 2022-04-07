@@ -45,7 +45,8 @@ class TasksController < ApplicationController
   end
 
   def priority_color(priority)
-    case priority
+    @pri = priority
+    case @pri
     when 1
       'text-success'
     when 2
