@@ -74,7 +74,7 @@
           <div class = "mb-3 d-flex justify-content-center">
             <div class = "form-check form-check-inline">
               <%= radio_button_tag :priority, 1, false, class: "form-check-input" %>
-              <%= label_tag :priority_low, 'Low', class: "form-check-label text-primary" %>
+              <%= label_tag :priority_low, 'Low', class: "form-check-label text-success" %>
             </div>
             <div class = "form-check form-check-inline">
               <%= radio_button_tag :priority, 2, false, class: "form-check-input" %>
@@ -128,11 +128,11 @@
           </p>
         </div>
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-          <span class="badge bg-success">
-            <%=  task.category %>
+          <span class="badge bg-primary">
+            <%= task.category %>
           </span>
           <h1 class = <%= if task.priority == 1
-                            'text-primary'
+                            'text-success'
                           else
                             task.priority == 2 ? 'text-warning' : 'text-danger'
                           end %>>
@@ -185,11 +185,11 @@
           </p>
         </div>
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-          <span class="badge bg-success">
+          <span class="badge bg-primary">
             <%=   task.category  %>
           </span>
           <h1 class = <%= if task.priority == 1
-                            'text-primary'
+                            'text-success'
                           else
                             task.priority == 2 ? 'text-warning' : 'text-danger'
                           end %>>
