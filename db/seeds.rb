@@ -34,29 +34,29 @@ task_objects = [
     user_add: 'Roberto',
     complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
     user_complete: 'Melody',
-    completed: true
+    completed: false
   },
   {
     name: 'fill pantry',
     description: 'stock the pantry with tomatoes',
     category: 'Inventory',
-    priority: 1,
+    priority: 2,
     added: DateTime.new(2001, 2, 3, 4, 5, 6),
     user_add: 'Simon',
     complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
     user_complete: 'Aditya',
-    completed: false
+    completed: true
   },
   {
     name: 'make app',
     description: 'make the app for BSFC',
     category: 'Engineering',
-    priority: 1,
+    priority: 3,
     added: DateTime.new(2001, 2, 3, 4, 5, 6),
     user_add: 'Armando',
     complete_time: DateTime.new(2001, 2, 3, 4, 5, 6),
     user_complete: 'Us',
-    completed: true
+    completed: false
   }
 ]
 
