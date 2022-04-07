@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all.sort_by(&:priority).reverse!
+    @tasks = Task.all.sort_by { |task| [task.priority, task.added] }.reverse!
     @users = User.all
   end
 
