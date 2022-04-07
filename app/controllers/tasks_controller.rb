@@ -1,6 +1,13 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all.sort_by { |task| [-task.priority, task.added] }
+    @filter = params[:category]
+
+    @tasks = if @filter.blank? | @filter == 'All Categories'
+               Task.all
+             else
+               Task.where(category: @filter)
+             end
+    @tasks = @tasks.sort_by { |task| [-task.priority, task.added] }
     @categories = Task.all.uniq(&:category)
     @users = User.all
   end
@@ -32,17 +39,6 @@ class TasksController < ApplicationController
     new_task.user_add = current_user.name
     new_task.completed = false
     new_task.save!
-    redirect_to tasks_path
-  end
-
-  def filter
-    category = params[:category]
-    @tasks = if category == 'All Categories'
-               Task.all
-             else
-               Task.find_by { |task| task.category == category }
-             end
-    @tasks = @tasks.sort_by { |task| [-task.priority, task.added] }
     redirect_to tasks_path
   end
 

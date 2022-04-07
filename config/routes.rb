@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post 'tasks/clear' => 'tasks#clear'
   post 'checkmark' => 'tasks#checkmark'
   delete 'logout' => 'sessions#destroy'
-  get 'filter' => 'tasks#filter'
   resources :announcements
   resources :tasks
 end
