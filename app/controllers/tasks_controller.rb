@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all.sort_by { |task| [-task.priority, task.added] }
+    @categories = Task.all.uniq { |task| task.category}
     @users = User.all
   end
 

@@ -35,7 +35,9 @@
         <small class = "me-1 my-2">Filter tasks by</small>
         <select class = "border-0 bg-light rounded text-secondary">
           <option selected>None</option>
-          <option>Inventory</option>
+          <% @categories.each do |category| %>
+            <option><%= category %>></option>
+          <% end %>
         </select>
       </div>
       <button type = "button" class = "btn btn-sm btn-danger" data-bs-toggle = "modal" data-bs-target = "#add-task-modal">Add Task +</button>
