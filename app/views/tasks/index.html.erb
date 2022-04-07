@@ -108,15 +108,15 @@
       <!-- Task panel -->
       <div class="task-panel row px-1 py-1 border-bottom<%= @first ? " border-top" : "" %> border-dark">
         <% @first = false %>
+        <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+          &nbsp
+        </div>
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%= button_to "✔️", checkmark_path(:task => task, :user => current_user), class: "btn btn-success" %>
         </div>
 
         <!-- Right side of panel -->
-        <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-          &nbsp
-        </div>
         <div class="col-7 ps-4 justify-content-between align-items-center">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="fw-bold m-0">
