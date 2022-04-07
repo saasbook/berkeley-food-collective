@@ -24,8 +24,7 @@ user_objects = [
   },
   {
     name: 'Diego Corona-Munoz',
-    email: 'diegocorona@berkeley.edu
-'
+    email: 'diegocorona@berkeley.edu'
   }
 ]
 
