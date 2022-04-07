@@ -146,7 +146,9 @@
               popup.classList.toggle('show');
             }
             myFunction('<%= task.__id__ %>')">
-            <span class="popuptext" id='<%= task.__id__ %>'>A Simple Popup!</span>
+            <span class="popuptext" id='<%= task.__id__ %>'>
+              <button type = "button" class = "btn btn-sm btn-danger" data-bs-toggle = "modal" data-bs-target = "#add-task-modal">Add Task +</button>
+            </span>
           </div>
           </div>
         </div>
