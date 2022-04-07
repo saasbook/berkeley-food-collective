@@ -74,23 +74,15 @@
           <div class = "mb-3 d-flex justify-content-center">
             <div class = "form-check form-check-inline">
               <%= radio_button_tag :priority, 1, false, class: "form-check-input" %>
-              <%= label_tag :priority_1, 1, class: "form-check-label" %>
+              <%= label_tag :priority_low, 'Low', class: "form-check-label text-success" %>
             </div>
             <div class = "form-check form-check-inline">
               <%= radio_button_tag :priority, 2, false, class: "form-check-input" %>
-              <%= label_tag :priority_2, 2, class: "form-check-label" %>
+              <%= label_tag :priority_medium, 'Medium', class: "form-check-label text-warning" %>
             </div>
             <div class = "form-check form-check-inline">
               <%= radio_button_tag :priority, 3, false, class: "form-check-input" %>
-              <%= label_tag :priority_3, 3, class: "form-check-label" %>
-            </div>
-            <div class = "form-check form-check-inline">
-              <%= radio_button_tag :priority, 4, false, class: "form-check-input" %>
-              <%= label_tag :priority_4, 4, class: "form-check-label" %>
-            </div>
-            <div class = "form-check form-check-inline">
-              <%= radio_button_tag :priority, 5, false, class: "form-check-input" %>
-              <%= label_tag :priority_5, 5, class: "form-check-label" %>
+              <%= label_tag :priority_high, 'High', class: "form-check-label text-danger" %>
             </div>
           </div>
           <div class = "mb-2 d-flex justify-content-center">
@@ -116,28 +108,35 @@
         <% @first = false %>
         <!-- Checkbox -->
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-          <%#= check_box_tag :checkoff_task %>
           <%= button_to "✔️", checkmark_path(:task => task, :user => current_user), class: "btn btn-success" %>
         </div>
 
         <!-- Right side of panel -->
-        <div class="col-11 ps-4">
+        <div class="col-9 ps-4 justify-content-between align-items-center">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="fw-bold m-0">
               <%=   task.name   %>
             </h5>
-            <span class="badge bg-success">
-                    <%=   task.category  %>
-                  </span>
           </div>
           <p class="fw-lighter small m-0"><small>
             Posted by <%=   task.user_add   %> at <%=   task.added   %>
           </small></p>
           <p class="m-0">
             <small>
-              <%=   task.description   %>
+              <%= task.description %>
             </small>
           </p>
+        </div>
+        <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+          <span class="badge bg-success">
+            <%=   task.category  %>
+          </span>
+          <h1>
+            !!!
+          </h1>
+        </div>
+        <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+          <div class = 'triple-dot-menu'></div>
         </div>
       </div>
     </div>
