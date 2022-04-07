@@ -141,8 +141,8 @@
           </h1>
         </div>
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-          <div class = 'triple-dot-menu popup' onclick="myFunction(<%= task %>)">
-            <span class="popuptext" id="myPopup<%= task %>">A Simple Popup!</span>
+          <div class = 'triple-dot-menu popup' onclick="myFunction('<%= task.__id__ %>')">
+            <span class="popuptext" id="myPopup<%= task.__id__ %>">A Simple Popup!</span>
           </div>
           </div>
         </div>
