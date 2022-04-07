@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   def index
     @filter = params[:category]
 
-    @tasks = if @filter.blank? | @filter == 'All Categories'
+    @tasks = if @filter.blank?
                Task.all
              else
                Task.where(category: @filter)
