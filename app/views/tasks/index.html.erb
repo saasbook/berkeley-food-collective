@@ -162,12 +162,15 @@
       <div class="task-panel row px-1 py-1 border-bottom<%= @first ? " border-top" : "" %> border-dark">
       <% @first = false %>
         <!-- Checkbox -->
+        <div class = 'col-1'>
+          &nbsp
+        </div>
         <div class="col-1 d-flex flex-column justify-content-center align-items-center">
           <%= button_to "❌", checkmark_path(:task => task, :user => current_user), class: "btn btn-danger" %>
         </div>
 
         <!-- Right side of panel -->
-        <div class="col-9 ps-4">
+        <div class="col-7 ps-4">
           <div class="d-flex justify-content-between align-items-center">
             <h5 class="fw-bold m-0">
               <%=  task.name  %>
@@ -185,7 +188,7 @@
             </small>
           </p>
         </div>
-        <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-2 d-flex flex-column justify-content-center align-items-center">
           <span class="badge bg-dark">
             <%=   task.category  %>
           </span>
