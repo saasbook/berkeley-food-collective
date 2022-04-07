@@ -45,16 +45,16 @@ class TasksController < ApplicationController
   end
 
   def priority_color(priority)
-    @pri = priority
-    case @pri
-    when 1
-      'text-success'
-    when 2
-      'text-warning'
-    when 3
-      'text-danger'
-    else
-      'text-primary'
-    end
+    flash[:success] = 'It runs'
+    # case priority
+    # when 1
+    #   'text-success'
+    # when 2
+    #   'text-warning'
+    # when 3
+    #   'text-danger'
+    # else
+    #   'text-primary'
+    # end
   end
 end
