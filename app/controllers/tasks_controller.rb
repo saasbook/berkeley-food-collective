@@ -41,7 +41,8 @@ class TasksController < ApplicationController
                Task.all
              else
                Task.find_by { |task| task.category == category }
-    end
+             end
+    @tasks = @tasks.sort_by { |task| [-task.priority, task.added] }
     redirect_to tasks_path
   end
 
