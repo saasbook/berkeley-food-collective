@@ -131,7 +131,11 @@
           <span class="badge bg-success">
             <%=  task.category %>
           </span>
-          <h1 class = ''<%# priority_color task.priority %>>
+          <h1 class = <%= if task.priority == 1
+                            'text-success'
+                          else
+                            task.priority == 2 ? 'text-warning' : 'text-danger'
+                          end %>>
             <%= '!' * task.priority  %>
           </h1>
         </div>
