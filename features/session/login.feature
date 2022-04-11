@@ -21,4 +21,13 @@ Feature: Login
     When I fill in "session_email" with "roberto@roberto.com"
     And I press "Login"
     Then I should see "Please enter a valid email address!"
+
+  Scenario: User inputs an inactive email
+    Given the following users in the database
+      | name           | email              | active |
+      | Inactive Nancy | inactive@email.com | false  | 
+
+    When I fill in "session_email" with "inactive@email.com"
+    And I press "Login"
+    Then I should see "Please enter a valid email address!"
   
