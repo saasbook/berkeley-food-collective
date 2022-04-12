@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.1"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-#gem "pg", "~> 1.1"
+gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -51,13 +51,12 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'rspec'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  
+
   # References to sqlite gem to only appear in dev/test groups
   gem 'sqlite3'
 
@@ -68,14 +67,18 @@ group :development do
   # gem "spring"
 end
 
-group :production do
-  gem 'pg'              # use PostgreSQL in production (Heroku)
-end
-
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rspec'
+  # Added from cue-to-cue assignment
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'simplecov', :require => false
+  gem 'simplecov_json_formatter', :require => false
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # basic imperative step defs like "Then I should see..."
+  gem 'database_cleaner' # required by Cucumber
 end
