@@ -1,19 +1,19 @@
 <!-- Tab navbar -->
-<div class = "sticky-top bg-light">
+<div class="sticky-top bg-light">
   <!-- General Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-dark p-0">
-    <div class = "container-fluid">
-      <a class = "navbar-brand" href = "#">
-        <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 40, :height => 40} %>    
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 40, :height => 40} %>
       </a>
-      <small style = "color: white;">Welcome <%= current_user.name %></small>
-      <button class = "navbar-toggler bg-light" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navbarNav" aria-controls = "navbarNav" aria-expanded = "false" aria-label = "Toggle navigation">
+      <small style="color: white;">Welcome <%= current_user.name %></small>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class = "navbar-toggler-icon"></span>
       </button>
-      <div class = "collapse navbar-collapse" id = "navbarNav">
-        <ul class = "navbar-nav">
-          <li class = "nav-item text-end">
-            <%= link_to "Log Out", logout_path, class: "nav-link text-light" %>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item text-end">
+            <%= link_to "Log Out", logout_path, method: :post, class: "nav-link text-light" %>
           </li>
         </ul>
       </div>
@@ -23,80 +23,80 @@
   <!-- Tasks nav bar -->
   <div>
     <!-- Switch between tabs -->
-    <div class = "dropdown w-100 px-1 border-bottom border-dark">
-      <a class = "btn btn-light dropdown-toggle" href = "#" role = "button" id = "dropdown-nav" data-bs-toggle = "dropdown" aria-expanded = "false">
+    <div class="dropdown w-100 px-1 border-bottom border-dark">
+      <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdown-nav" data-bs-toggle="dropdown" aria-expanded="false">
         Tasks
       </a>
-      <div class = "dropdown-menu w-100" aria-labelledby = "dropdown-nav">
+      <div class="dropdown-menu w-100" aria-labelledby="dropdown-nav">
         <%= link_to "Announcements", announcements_path, class: "dropdown-item" %>
       </div>
     </div>
 
     <!-- Select category and add task-->
-    <div class = "d-flex align-items-center justify-content-between px-3 py-1">
-      <div class = "d-flex align-items-center">
-        <small class = "me-1 my-2">Filter tasks by</small>
-        <select class = "border-0 bg-light rounded text-secondary">
+    <div class="d-flex align-items-center justify-content-between px-3 py-1">
+      <div class="d-flex align-items-center">
+        <small class="me-1 my-2">Filter tasks by</small>
+        <select class="border-0 bg-light rounded text-secondary">
           <option selected>None</option>
           <option>Inventory</option>
         </select>
       </div>
-      <button type = "button" class = "btn btn-sm btn-danger" data-bs-toggle = "modal" data-bs-target = "#add-task-modal">Add Task +</button>
+      <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#add-task-modal">Add Task +</button>
     </div>
   </div>
 </div>
 
 <!-- Modal -->
-<div class = "modal fade" id = "add-task-modal" tabindex = "-1" aria-labelledby = "add-task-modal" aria-hidden = "true">
-  <div class = "modal-dialog">
-    <div class = "modal-content">
-      <div class = "modal-header">
-        <h5 class = "modal-title">Add New Task</h5>
-        <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
+<div class="modal fade" id="add-task-modal" tabindex="-1" aria-labelledby="add-task-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class = "modal-body">
-        <div class = "d-flex justify-content-end">
-          <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
+      <div class="modal-body">
+        <div class="d-flex justify-content-end">
+            <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
         </div>
         <%= form_tag tasks_path, :method => "post", :class => "" do %>
-          <div class = "mb-2">
+          <div class="mb-2">
             <%= label_tag :task_name, "Task Name", class: "form-label" %>
             <%= text_field_tag :task_name, nil, :placeholder => "New Task...", :class => "form-control" %>
           </div>
-          <div class = "mb-2">
+          <div class="mb-2">
             <%= label_tag :task_description, "Task Description", class: "form-label" %>
             <%= text_area_tag :task_description, nil, :placeholder => "Add new task description...", :class => "form-control" %>
           </div>
-          <div class = "mb-2">
+          <div class="mb-2">
             <%= label_tag :task_category, "Task Category", class: "form-label" %>
             <%= select_tag :task_category, raw("<option>Inventory</option><option>Register</option>"), :class => "form-control" %>
           </div>
-          <div class = "d-flex justify-content-center">
+          <div class="d-flex justify-content-center">
             <%= label_tag nil, "Task Priority", class: "form-label" %>
           </div>
-          <div class = "mb-3 d-flex justify-content-center">
-            <div class = "form-check form-check-inline">
+          <div class="mb-3 d-flex justify-content-center">
+            <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 1, false, class: "form-check-input" %>
               <%= label_tag :priority_1, 1, class: "form-check-label" %>
             </div>
-            <div class = "form-check form-check-inline">
+            <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 2, false, class: "form-check-input" %>
               <%= label_tag :priority_2, 2, class: "form-check-label" %>
             </div>
-            <div class = "form-check form-check-inline">
+            <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 3, false, class: "form-check-input" %>
               <%= label_tag :priority_3, 3, class: "form-check-label" %>
             </div>
-            <div class = "form-check form-check-inline">
+            <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 4, false, class: "form-check-input" %>
               <%= label_tag :priority_4, 4, class: "form-check-label" %>
             </div>
-            <div class = "form-check form-check-inline">
+            <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 5, false, class: "form-check-input" %>
               <%= label_tag :priority_5, 5, class: "form-check-label" %>
             </div>
           </div>
-          <div class = "mb-2 d-flex justify-content-center">
+          <div class="mb-2 d-flex justify-content-center">
             <%= submit_tag "Add Task +", :class => "btn btn-danger" %>
           </div>
         <% end %>
@@ -106,23 +106,23 @@
 </div>
 
 <!-- Tasks div -->
-<div id = "tasks-div" class = "container">
+<div id="tasks-div" class="container">
   <!-- Task panel -->
-  <div class = "task-panel row px-1 py-1 border-bottom border-top border-dark">
+  <div class="task-panel row px-1 py-1 border-bottom border-top border-dark">
     <!-- Checkbox -->
-    <div class = "col-1 d-flex flex-column justify-content-center align-items-center">
+    <div class="col-1 d-flex flex-column justify-content-center align-items-center">
       <%= check_box_tag :checkoff_task %>
     </div>
-    
+
     <!-- Right side of panel -->
-    <div class = "col-11 ps-4">
-      <div class = "d-flex justify-content-between align-items-center">
-        <h5 class = "fw-bold m-0">This is a task!</h5>
+    <div class="col-11 ps-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="fw-bold m-0">This is a task!</h5>
         <span class="badge bg-success">Inventory</span>
       </div>
-      <p class = "fw-lighter small m-0"><small>Completed by Roberto at 10:10am 12/12/12</small></p>
-      <p class = "fw-lighter small m-0"><small>Posted by Melody 9:00am 12/12/12</small></p>
-      <p class = "m-0">
+      <p class="fw-lighter small m-0"><small>Completed by Roberto at 10:10am 12/12/12</small></p>
+      <p class="fw-lighter small m-0"><small>Posted by Melody 9:00am 12/12/12</small></p>
+      <p class="m-0">
         <small>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </small>
