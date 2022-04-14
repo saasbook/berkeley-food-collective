@@ -7,7 +7,7 @@ class Announcement < ApplicationRecord
         @records = @table.records
         Announcement.delete_all
         @records.each do |record|
-            Announcement.create({message: record[:event_name], eventtime: record[:event_time]})
+            Announcement.create({message: record[:event_name], eventtime: record[:event_time], audience: record[:submitteremail], location: record[:event_location]})
         end 
     end
 end

@@ -54,10 +54,11 @@
       <div class = "d-flex justify-content-between align-items-center">
         <h5 class = "fw-bold m-0"> <%= announcement.message %> </h5>
       </div>
-      <p class="fw-lighter small m-0" style="line-height: 2;"><small>Posted by </small></p>
+      <p class="fw-lighter small m-0" style="line-height: 2;"><small>Posted by <%= announcement.audience %> </small></p>
       <p class="m-0" style="line-height: 1;">
         <small>
-          <b> Event Date: </b> <%= announcement.eventtime.strftime("%Y-%m-%d %H:%M:%S %z") %>
+          <b> Event Date: </b> <%= announcement.eventtime.strftime("%Y-%m-%d %H:%M:%S %z") %> <br>
+          <b> Event Location: </b> <%= announcement.location %>
         </small>
       </p>
     </div>
