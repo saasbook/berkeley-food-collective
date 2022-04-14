@@ -46,7 +46,7 @@
 <!-- Announcements div -->
 <div id="announcements-div" class="container bg-light">
   <!-- Announcement panel -->
-  <div class = "announcement-panel row px-1 py-1 border-bottom border-top border-dark">
+  <div class = "announcement-panel row px-1 py-1 border-bottom <% "border-top" if @count == 0 %> border-dark">
     
 
     <!-- Right side of panel -->
@@ -64,5 +64,7 @@
     </div>
   </div>
 </div>
+
+<% @count += 1 %>
 
 <% end %>
