@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
 
-    if user
+    if user && user.active
       login user
       redirect_to announcements_path
     else
@@ -15,5 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    logout
+    redirect_to login_path
   end
 end
