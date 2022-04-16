@@ -4,7 +4,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-dark p-0">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 40, :height => 40} %>
+        <%= link_to((image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 40, :height => 40}), announcements_path) %>
       </a>
       <small style="color: white;">Welcome <%= current_user.name %></small>
       <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,33 +33,37 @@
     </div>
 
     <!-- Select category and add task-->
-    <div class="d-flex align-items-center justify-content-between px-3 py-1">
-      <div class="d-flex align-items-center">
-        <small class="me-1 my-2">Filter tasks by</small>
-        <select class="border-0 bg-light rounded text-secondary">
-          <option selected>None</option>
-          <option>Inventory</option>
-        </select>
+    <div class = "d-flex align-items-center justify-content-between px-3 py-1">
+      <div id = "filter-category-dropdown"class = "d-flex align-items-center">
+        <small class = "me-1 my-2">Filter tasks by</small>
+        <label>
+          <select onchange = "location = this.value;" id="category-filter" class = "border-0 bg-light rounded text-secondary">
+            <option value = "<%= tasks_path %>" <%= params[:category].blank? ? 'selected' : ''%>>All Categories</option>
+            <% @curr_categories.each do |category| %>
+              <option value = "<%= tasks_path(:category => category) %>" <%= params[:category] == category ? 'selected' : ''%>><%= category %></option>
+            <% end %>
+          </select>
+        </label>
       </div>
       <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#add-task-modal">Add Task +</button>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="add-task-modal" tabindex="-1" aria-labelledby="add-task-modal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add New Task</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Add Task Modal -->
+<div class = "modal fade" id = "add-task-modal" tabindex = "-1" aria-labelledby = "add-task-modal" aria-hidden = "true">
+  <div class = "modal-dialog">
+    <div class = "modal-content">
+      <div class = "modal-header">
+        <h5 class = "modal-title">Add New Task</h5>
+        <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="d-flex justify-content-end">
-            <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
+      <div class = "modal-body">
+        <div class = "d-flex justify-content-center">
+          <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
         </div>
-        <%= form_tag tasks_path, :method => "post", :class => "" do %>
-          <div class="mb-2">
+        <%= form_tag tasks_path(:category => params[:category]), :method => "post", :class => "" do %>
+          <div class = "mb-2">
             <%= label_tag :task_name, "Task Name", class: "form-label" %>
             <%= text_field_tag :task_name, nil, :placeholder => "New Task...", :class => "form-control" %>
           </div>
@@ -69,35 +73,28 @@
           </div>
           <div class="mb-2">
             <%= label_tag :task_category, "Task Category", class: "form-label" %>
-            <%= select_tag :task_category, raw("<option>Inventory</option><option>Register</option>"), :class => "form-control" %>
+            <%= select_tag :task_category, options_for_select(@all_categories), :class => "form-control" %>
           </div>
           <div class="d-flex justify-content-center">
             <%= label_tag nil, "Task Priority", class: "form-label" %>
           </div>
-          <div class="mb-3 d-flex justify-content-center">
-            <div class="form-check form-check-inline">
-              <%= radio_button_tag :priority, 1, false, class: "form-check-input" %>
-              <%= label_tag :priority_1, 1, class: "form-check-label" %>
+
+          <div class = "mb-3 d-flex justify-content-center">
+            <div class = "form-check form-check-inline">
+              <%= radio_button_tag :priority, 1, true, class: "form-check-input" %>
+              <%= label_tag :priority_low, 'Low', class: "form-check-label text-success" %>
             </div>
             <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 2, false, class: "form-check-input" %>
-              <%= label_tag :priority_2, 2, class: "form-check-label" %>
+              <%= label_tag :priority_medium, 'Medium', class: "form-check-label text-warning" %>
             </div>
             <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 3, false, class: "form-check-input" %>
-              <%= label_tag :priority_3, 3, class: "form-check-label" %>
-            </div>
-            <div class="form-check form-check-inline">
-              <%= radio_button_tag :priority, 4, false, class: "form-check-input" %>
-              <%= label_tag :priority_4, 4, class: "form-check-label" %>
-            </div>
-            <div class="form-check form-check-inline">
-              <%= radio_button_tag :priority, 5, false, class: "form-check-input" %>
-              <%= label_tag :priority_5, 5, class: "form-check-label" %>
+              <%= label_tag :priority_high, 'High', class: "form-check-label text-danger" %>
             </div>
           </div>
-          <div class="mb-2 d-flex justify-content-center">
-            <%= submit_tag "Add Task +", :class => "btn btn-danger" %>
+          <div class = "mb-2 d-flex justify-content-center">
+            <%= submit_tag "Add Task", :class => "btn btn-danger", :id => "submit-add-task" %>
           </div>
         <% end %>
       </div>
@@ -105,28 +102,163 @@
   </div>
 </div>
 
-<!-- Tasks div -->
-<div id="tasks-div" class="container">
-  <!-- Task panel -->
-  <div class="task-panel row px-1 py-1 border-bottom border-top border-dark">
-    <!-- Checkbox -->
-    <div class="col-1 d-flex flex-column justify-content-center align-items-center">
-      <%= check_box_tag :checkoff_task %>
+<div class="center">
+  <h5>Incomplete Tasks</h5>
+</div>
+<% @tasks.each do |task| %>
+  <% if @count == @num_incomplete && !@completed %>
+    <% @count = 0 %>
+    <% @completed = true %>
+    <div class="center">
+      <h5>Completed Tasks</h5>
     </div>
-
-    <!-- Right side of panel -->
-    <div class="col-11 ps-4">
-      <div class="d-flex justify-content-between align-items-center">
-        <h5 class="fw-bold m-0">This is a task!</h5>
-        <span class="badge bg-success">Inventory</span>
+  <% end %>
+  <!-- Tasks div -->
+  <div id="tasks-div" class="container">
+    <!-- Task panel -->
+    <div id='task-panel-<%= task.name %>' class="task-panel row px-1 py-1 border-bottom px-1<%= @count == 0 ? " border-top" : "" %> border-dark">
+      <% @count += 1 %>
+      <!-- Checkbox -->
+      <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+        <% if task.completed %>
+          <picture type = 'button' data-bs-toggle = 'modal' data-bs-target = '#confirm-toggle-modal-<%= task.id %>'>
+            <%= image_tag "checked_checkbox.png", {:alt => "Checked Checkbox", :width => 25, :height => 25} %>
+          </picture>
+        <% else %>
+          <picture type = 'button' data-bs-toggle = 'modal' data-bs-target = '#confirm-toggle-modal-<%= task.id %>'>
+            <%= image_tag "empty_checkbox.png", {:alt => "Empty Checkbox", :width => 25, :height => 25} %>
+          </picture>
+        <% end %>
       </div>
-      <p class="fw-lighter small m-0"><small>Completed by Roberto at 10:10am 12/12/12</small></p>
-      <p class="fw-lighter small m-0"><small>Posted by Melody 9:00am 12/12/12</small></p>
-      <p class="m-0">
-        <small>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </small>
-      </p>
+
+      <!-- Right side of panel -->
+      <div id='task-card-<%= task.name %>' class="col-10 ps-4 justify-content-between align-items-center">
+        <div class="d-flex bd-highlight justify-content-center align-items-center">
+          <h5 class = 'fw-bold bd-highlight <%= priority_color task.priority %>'>
+            <%= priority_visualizer task.priority  %> &nbsp
+          </h5>
+          <h5 class="fw-bold ml-0 bd-highlight">
+            <%=   task.name   %>
+          </h5>
+          <span class="badge bg-dark ms-auto bd-highlight" >
+            <%= task.category %>
+          </span>
+        </div>
+        <% if task.completed %>
+          <p class="fw-lighter small m-0">
+            <small class="complete">
+              Completed by <%=  task.user_complete  %> at <%= task.complete_time.strftime('%I:%M %p %Z') %> on <%= task.complete_time.strftime('%b %d %Y') %>
+            </small></p>
+        <% end %>
+        <p class="fw-lighter small m-0">
+          <small>
+            Posted by <%= task.user_add %> at <%= task.added.strftime('%I:%M %p %Z') %> on <%= task.added.strftime('%b %d %Y') %>
+         </small></p>
+        <p class="m-0">
+          <small>
+            <%= task.description %>
+          </small>
+        </p>
+      </div>
+      <div class="col-1 d-flex flex-column justify-content-center align-items-center">
+        <div class = 'triple-dot-menu' type = "button" data-bs-toggle = 'modal' data-bs-target = '#edit-task-modal-<%= task.id %>'></div>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Confirm Complete Task Modal -->
+  <div class = "modal fade" id = "confirm-toggle-modal-<%= task.id %>" tabindex = "-1" aria-labelledby = "confirm-toggle-modal-<%= task.id %>" aria-hidden = "true">
+    <div class = "modal-dialog">
+      <div class = "modal-content">
+        <div class = "modal-header">
+          <% if task.completed %>
+            <h5 class = "modal-title">Confirm Task Undo</h5>
+          <% else %>
+            <h5 class = "modal-title">Confirm Task Completion</h5>
+          <% end %>
+          <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
+        </div>
+        <div class = "modal-body">
+          <div class = "d-flex justify-content-center">
+            <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
+          </div>
+          <h5 class = "d-flex justify-content-center">
+            <%= task.name %>
+          </h5>
+          <div class = "d-flex justify-content-center">
+            <%= task.description %>
+          </div>
+          <div>&nbsp</div>
+          <% if task.completed %>
+            <div class = "mb-2 d-flex justify-content-center">
+              <%= button_to "Undo Task Completion", checkmark_path(:id => task, :user => current_user, :category => params[:category]), :class => "btn btn-danger" %>
+            </div>
+          <% else %>
+            <div class = "mb-2 d-flex justify-content-center">
+              <%= button_to "Complete Task", checkmark_path(:id => task, :user => current_user, :category => params[:category]), :class => "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Edit Task Modal -->
+  <div class = "modal fade" id = "edit-task-modal-<%= task.id %>" tabindex = "-1" aria-labelledby = "edit-task-modal-<%= task.id %>" aria-hidden = "true">
+    <div class = "modal-dialog">
+      <div class = "modal-content">
+        <div class = "modal-header">
+          <h5 class = "modal-title">Edit Existing Task</h5>
+          <button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"></button>
+        </div>
+        <div class = "modal-body">
+          <div class = "d-flex justify-content-center">
+            <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 100, :height => 100} %>
+          </div>
+          <%= form_tag task_path(:id => task, :category => params[:category]), :method => "put", :class => "" do %>
+            <div class = "mb-2">
+              <%= label_tag :task_name, "Task Name", class: "form-label" %>
+              <%= text_field_tag :task_name, nil, :placeholder => "New Task...", :class => "form-control", :value => task.name %>
+            </div>
+            <div class = "mb-2">
+              <%= label_tag :task_description, "Task Description", class: "form-label" %>
+              <%= text_area_tag :task_description, task.description, :placeholder => "Add new task description...", :class => "form-control" %>
+            </div>
+            <div class = "mb-2">
+              <%= label_tag :task_category, "Task Category", class: "form-label" %>
+              <%= select_tag :task_category, options_for_select(@all_categories, task.category), :class => "form-control" %>
+            </div>
+            <div class = "d-flex justify-content-center">
+              <%= label_tag nil, "Task Priority", class: "form-label" %>
+            </div>
+            <div class = "mb-3 d-flex justify-content-center">
+              <div class = "form-check form-check-inline">
+                <%= radio_button_tag :priority, 1, task.priority == 1, class: "form-check-input" %>
+                <%= label_tag :priority_low, 'Low', class: "form-check-label text-success" %>
+              </div>
+              <div class = "form-check form-check-inline">
+                <%= radio_button_tag :priority, 2, task.priority == 2, class: "form-check-input" %>
+                <%= label_tag :priority_medium, 'Medium', class: "form-check-label text-warning" %>
+              </div>
+              <div class = "form-check form-check-inline">
+                <%= radio_button_tag :priority, 3, task.priority == 3, class: "form-check-input" %>
+                <%= label_tag :priority_high, 'High', class: "form-check-label text-danger" %>
+              </div>
+            </div>
+            <div class = "mb-2 d-flex justify-content-center">
+              <%= submit_tag "Edit Task", :class => "btn btn-danger" %>
+            </div>
+          <% end %>
+          <div class = "mb-2 d-flex justify-content-center">
+            <%= button_to "Delete Task", task_path(id: task, category: params[:category]), :method => "delete", :class => "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
