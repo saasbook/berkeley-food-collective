@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item text-end">
-            <%= link_to "Log Out", logout_path, method: :post, class: "nav-link text-light" %>
+            <%= button_to "Log Out", logout_path, class: "nav-link text-light btn-danger" %>
           </li>
         </ul>
       </div>
@@ -27,12 +27,12 @@
       <a class="btn dropdown-toggle fs-1 fw-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         Announcements
       </a>
-        <ul class="dropdown-menu w-100 " style="box-shadow: 0 20px 20px grey" aria-labelledby="navigation-dropdown">
-          <li>
-            <%= link_to "Tasks", tasks_path, class: "dropdown-item fs-1 fw-bold" %>
-          </li>
-        </ul>
-      </div>
+      <ul class="dropdown-menu w-100 " style="box-shadow: 0 20px 20px grey" aria-labelledby="navigation-dropdown">
+        <li>
+          <%= link_to "Tasks", tasks_path, class: "dropdown-item fs-1 fw-bold" %>
+        </li>
+      </ul>
+    </div>
 
       <!-- add announcement -->
       <div class="d-flex align-items-center justify-content-end px-3 py-2">
