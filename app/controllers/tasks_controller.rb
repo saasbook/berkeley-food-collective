@@ -31,13 +31,19 @@ class TasksController < ApplicationController
   end
 
   def checkmark
-    task = Task.find(params[:id])
-    task.completed = !task.completed
-    user = User.find(params[:user])
-    task.user_complete = user.name
-    task.complete_time = DateTime.now
-    task.save!
-    redirect_to tasks_path(category: params[:category])
+    begin
+      task = Task.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to tasks_path
+      flash[:danger] = 'Task no longer exists.'
+    else
+      user = User.find(params[:user])
+      task.completed = !task.completed
+      task.user_complete = user.name
+      task.complete_time = Time.current
+      task.save!
+      redirect_to tasks_path(category: params[:category])
+    end
   end
 
   def new
