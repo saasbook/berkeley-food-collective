@@ -9,7 +9,7 @@ class TasksController < ApplicationController
                Task.where(category: @filter)
              end
     incomplete_task = @tasks.where(completed: false).order(priority: :desc, added: :asc)
-    completed_tasks = @tasks.where(completed: true).order(:complete_time)
+    completed_tasks = @tasks.where(completed: true).order(:complete_time).reverse
     @tasks = incomplete_task + completed_tasks
     @num_incomplete = incomplete_task.count
     @count = 0
