@@ -21,7 +21,7 @@ class TasksController < ApplicationController
   def destroy
     begin
       task = Task.find(params[:id])
-    rescue RecordNotFound
+    rescue ActiveRecord::RecordNotFound
       redirect_to tasks_path
       flash[:danger] = 'Task no longer exists.'
     else
