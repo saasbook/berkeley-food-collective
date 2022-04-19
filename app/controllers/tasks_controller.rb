@@ -50,6 +50,7 @@ class TasksController < ApplicationController
         task.complete_time = Time.current
         task.save!
         redirect_to tasks_path(category: params[:category])
+        flash[:success] = params[:action]
       end
     end
   end
