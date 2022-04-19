@@ -43,7 +43,7 @@ class TasksController < ApplicationController
         flash[:message] = "This task has already been completed by #{task.user_complete}."
       elsif params[:check_type] == 'unchecking' && !task.completed
         redirect_to tasks_path
-        flash[:message] = "This task has already been marked as incomplete by #{task.user_complete}."
+        flash = "This task has already been marked as incomplete by #{task.user_complete}."
       else
         task.completed = !task.completed
         task.user_complete = user.name
