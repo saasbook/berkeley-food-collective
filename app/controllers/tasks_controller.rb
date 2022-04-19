@@ -40,17 +40,16 @@ class TasksController < ApplicationController
       user = User.find(params[:user])
       if params[:check_type] == 'checking' && task.completed
         redirect_to tasks_path
-        flash[:danger] = 'This task has already been completed by someone else.'
+        flash[:danger] = "This task has already been completed by #{task.user_complete}."
       elsif params[:check_type] == 'unchecking' && !task.completed
         redirect_to tasks_path
-        flash[:danger] = 'This task has already been marked as incomplete by someone else.'
+        flash[:danger] = "This task has already been marked as incomplete by #{task.user_complete}."
       else
         task.completed = !task.completed
         task.user_complete = user.name
         task.complete_time = Time.current
         task.save!
         redirect_to tasks_path(category: params[:category])
-        flash[:success] = params[:check_type]
       end
     end
   end
