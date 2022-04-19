@@ -19,9 +19,15 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    task = Task.find(params[:id])
-    Task.delete(task)
-    redirect_to tasks_path(category: params[:category])
+    begin
+      task = Task.find(params[:id])
+    rescue RecordNotFound
+      redirect_to tasks_path
+      flash[:danger] = 'Task no longer exists.'
+    else
+      Task.delete(task)
+      redirect_to tasks_path(category: params[:category])
+    end
   end
 
   def checkmark
