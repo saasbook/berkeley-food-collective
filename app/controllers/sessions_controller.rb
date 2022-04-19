@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login
+
   def new
   end
 
@@ -9,7 +11,7 @@ class SessionsController < ApplicationController
       login user
       redirect_to announcements_path
     else
-      flash[:danger] = "Please enter a valid email address!"
+      flash[:danger] = 'Please enter a valid email address!'
       redirect_to login_path
     end
   end
