@@ -102,6 +102,12 @@
   </div>
 </div>
 
+<%flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
 <div class="center">
   <h5>Incomplete Tasks</h5>
 </div>
