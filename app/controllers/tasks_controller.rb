@@ -38,11 +38,19 @@ class TasksController < ApplicationController
       flash[:danger] = 'Task no longer exists.'
     else
       user = User.find(params[:user])
-      task.completed = !task.completed
-      task.user_complete = user.name
-      task.complete_time = Time.current
-      task.save!
-      redirect_to tasks_path(category: params[:category])
+      if params[:action] == 'checking' && task.completed
+        redirect_to tasks_path
+        flash[:danger] = 'This task has already been completed by someone else.'
+      elsif params[:action] == 'unchecking' && !task.completed
+        redirect_to tasks_path
+        flash[:danger] = 'This task has already been marked as incomplete by someone else.'
+      else
+        task.completed = !task.completed
+        task.user_complete = user.name
+        task.complete_time = Time.current
+        task.save!
+        redirect_to tasks_path(category: params[:category])
+      end
     end
   end
 
