@@ -7,7 +7,12 @@ class Announcement < ApplicationRecord
         @records = @table.records
         Announcement.delete_all
         @records.each do |record|
-            Announcement.create({message: record[:event_name], eventtime: record[:event_time], audience: record[:submitteremail], location: record[:event_location]})
+            if record[:submitteremail].length == 0
+                @recorded_author = 'BSFC'
+            else
+                @recorded_author = record[:submitteremail][0]
+            end
+            Announcement.create({message: record[:event_name], eventtime: record[:event_time],audience: @recorded_author, location: record[:event_location]})
         end 
     end
 end
