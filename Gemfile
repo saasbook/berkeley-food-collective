@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem "airtable"
 gem "figaro"
+gem "byebug"
+gem "rdoc"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
