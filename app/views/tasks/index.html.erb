@@ -111,20 +111,11 @@
       <h3>Completed Tasks</h3>
     </div>
   <% end %>
-  <% if @num_high > 0 && @count == 0 && !@completed %>
-    <% @count = 0 %>
+  <% unless @completed %>
     <div class="center">
-      <h5>High Priority Tasks</h5>
-    </div>
-  <% elsif @count == @num_high && !@completed %>
-    <% @count = 0 %>
-    <div class="center">
-      <h5>Airtable Recurring Tasks</h5>
-    </div>
-  <% elsif @count == @num_med && !@completed %>
-    <% @count = 0 %>
-    <div class="center">
-      <h5>Airtable Recurring Tasks</h5>
+      <h5>
+        <%= incomplete_subsection @count, task.priority %>
+      </h5>
     </div>
   <% end %>
   <!-- Tasks div -->
