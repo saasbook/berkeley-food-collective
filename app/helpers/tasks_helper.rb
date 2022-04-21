@@ -12,7 +12,7 @@ module TasksHelper
 
   def priority_visualizer(priority)
     if priority == 2
-      image_tag 'airtable_logo.png', { alt: 'Airtable Logo', width: 25, height: 25 }
+      image_tag 'airtable_logo.png', { alt: 'Airtable Logo', width: 20, height: 20 }
     else
       '!' * priority
     end
