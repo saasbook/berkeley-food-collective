@@ -28,7 +28,7 @@ module TasksHelper
       subsection_titles[1]
     elsif curr_count == @num_high + @num_med && @num_low.positive?
       @sub_count = 0
-      subsection_titles[2]
+      subsection_titles[0]
     end
   end
 end
