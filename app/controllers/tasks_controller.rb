@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
   def index
+    Task.populate_from_airtable
     @filter = params[:category]
     @all_categories = %w[Inventory Register Engineering]
     @tasks = if @filter.blank?
