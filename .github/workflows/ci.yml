@@ -19,7 +19,9 @@ jobs:
     
     - name: Get AirTable Keys
       run: |
-        gpg --passphrase ${{ secrets.KEY }} --decrypt --output config/application.yml config/application.yml.asc
+        gpg --passphrase "$PASS_KEY" --decrypt --output config/application.yml config/application.yml.asc
+      env:
+        PASS_KEY: ${{ secrets.KEY }}
     
     - name: Setup CodeClimate test-reporter
       run: |
