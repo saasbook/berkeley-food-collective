@@ -121,8 +121,9 @@
   <!-- Tasks div -->
   <div id="tasks-div" class="container">
     <!-- Task panel -->
-    <div id='task-panel-<%= task.name %>' class="task-panel row px-1 py-1 border-bottom px-1<%= @count == 0 ? " border-top" : "" %> border-dark">
+    <div id='task-panel-<%= task.name %>' class="task-panel row px-1 py-1 border-bottom px-1<%= @sub_count == 0 ? " border-top" : "" %> border-dark">
       <% @count += 1 %>
+      <% @sub_count += 1 %>
       <!-- Checkbox -->
       <div class="col-1 d-flex flex-column justify-content-center align-items-center">
         <% if task.completed %>
