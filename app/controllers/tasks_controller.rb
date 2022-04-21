@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     completed_tasks = @tasks.where(completed: true).order(:complete_time).reverse
     @tasks = incomplete_task + completed_tasks
     @num_incomplete = incomplete_task.count
-    @count = 0
+    @count = @sub_count = 0
     @completed = false
     @curr_categories = @all_categories
     @users = User.all
