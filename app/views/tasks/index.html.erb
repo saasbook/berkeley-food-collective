@@ -99,10 +99,11 @@
     </div>
   </div>
 </div>
-
-<div class="center">
-  <h1>Incomplete Tasks</h1>
-</div>
+<% if @num_incomplete.positive? %>
+  <div class="center">
+    <h1>Incomplete Tasks</h1>
+  </div>
+<% end %>
 <% @tasks.each do |task| %>
   <% if @count == @num_incomplete && !@completed %>
     <% @count = 0 %>
