@@ -18,10 +18,10 @@ jobs:
         bundler-cache: true
     
     - name: Get AirTable Keys
-      run: |
-        gpg --passphrase "$PASS_KEY" --decrypt --output config/application.yml config/application.yml.asc
       env:
         PASS_KEY: ${{ secrets.KEY }}
+      run: |
+        gpg --passphrase "$PASS_KEY" --decrypt --output config/application.yml config/application.yml.asc
     
     - name: Setup CodeClimate test-reporter
       run: |
