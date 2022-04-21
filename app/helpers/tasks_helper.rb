@@ -19,9 +19,8 @@ module TasksHelper
   end
 
   def incomplete_subsection(curr_count, curr_priority)
-    subsection_titles = ['High Priority Tasks', 'Airtable Recurring Tasks', 'Low Priority Tasks']
+    subsection_titles = ['Low Priority Tasks', 'Airtable Recurring Tasks', 'High Priority Tasks']
     if curr_count.zero?
-      @sub_count = 0
       subsection_titles[curr_priority - 1]
     elsif curr_count == @num_high && @num_med.positive?
       @sub_count = 0
