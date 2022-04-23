@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login
+  before_action :require_update_airtable, only: [:create]
 
   def new
   end
@@ -20,4 +21,11 @@ class SessionsController < ApplicationController
     logout
     redirect_to login_path
   end
+
+  private
+
+  def require_update_airtable
+    User.populate_from_airtable
+  end
+
 end
