@@ -25,27 +25,27 @@ Feature: Adding Tasks
   Scenario: Add task modal displays correctly
     When I press "Add Task +"
     Then I should see "Add Task"
-    Then "Task Name" should appear before "New Task..."
-    Then "Task Description" should appear before "Add new task description..."
-    Then I should see "Task Category"
-    Then I should see "Inventory"
-    Then I should see "Task Priority"
-    Then the category dropdown on the modal should have the correct options
-    Then the category dropdown on the modal should have "Inventory" selected
-    Then there should be the correct priority options
-    Then the "Low" priority button should be checked
+    And "Task Name" should appear before "New Task..."
+    And "Task Description" should appear before "Add new task description..."
+    And I should see "Task Category"
+    And I should see "Inventory"
+    And I should see "Task Priority"
+    And the category dropdown on the modal should have the correct options
+    And the category dropdown on the modal should have "Inventory" selected
+    And there should be the correct priority options
+    And the "Low" priority button should be checked
 
   Scenario: Add a task with default category and priority
     When I enter task name "New Default Task" on the add task modal
     And I enter task description "new task description" on the add task modal
     And I add the task
     Then I should see "New Default Task"
-    Then "!" should be the priority for "New Default Task"
-    Then "new task description" should be the description for "New Default Task"
-    Then "Inventory" should be the category for "New Default Task"
-    Then "Count cash in register" should appear before "New Default Task"
-    Then "Roberto" should be the user_added for "New Default Task"
-    Then "New Default Task" should not say completed
+    And "!" should be the priority for "New Default Task"
+    And "new task description" should be the description for "New Default Task"
+    And "Inventory" should be the category for "New Default Task"
+    And "Count cash in register" should appear before "New Default Task"
+    And "Roberto" should be the user_added for "New Default Task"
+    And "New Default Task" should not say completed
 
   Scenario: Add a task with different category and priority
     When I press "Add Task +"
@@ -57,12 +57,12 @@ Feature: Adding Tasks
     Then the "Medium" priority button should be checked
     And I add the task
     Then I should see "task 1"
-    Then "task 1 description" should be the description for "task 1"
-    Then "Engineering" should be the category for "task 1"
-    Then "Count cash in register" should appear before "task 1"
-    Then "task 1" should appear before "low priority 1"
-    Then "Roberto" should be the user_added for "task 1"
-    Then "task 1" should not say completed
+    And "task 1 description" should be the description for "task 1"
+    And "Engineering" should be the category for "task 1"
+    And "Count cash in register" should appear before "task 1"
+    And "task 1" should appear before "low priority 1"
+    And "Roberto" should be the user_added for "task 1"
+    And "task 1" should not say completed
 
 
 

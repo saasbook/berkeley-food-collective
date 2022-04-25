@@ -29,12 +29,12 @@ Feature: Checking off Tasks
     Then I should see "Confirm Task Completion"
     And I confirm "Complete Task" for the task with id "1"
     Then "Roberto" should be the user_complete for "Count cash in register"
-    Then "Completed Tasks" should appear before "Count cash in register"
+    And "Completed Tasks" should appear before "Count cash in register"
 
   Scenario: Unchecking a task
     And I uncheck-off "Finished task"
     Then I should see "Confirm Task Completion"
     And I confirm "Undo Task Completion" for the task with id "2"
     Then "Finished task" should not say completed
-    Then "Finished task" should appear before "Completed Tasks"
+    And "Finished task" should appear before "Completed Tasks"
 

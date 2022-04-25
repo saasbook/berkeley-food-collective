@@ -28,28 +28,28 @@ Feature: Editing Tasks
   Scenario: Edit Task Modal displays correctly
     When I tap the dots to edit "Count cash in register"
     Then I should see "Edit Existing Task"
-    Then "Task Name" should appear before "Count cash in register"
-    Then "Task Description" should appear before "do this asap please!"
-    Then I should see "Task Category"
-    Then I should see "Task Priority"
-    Then the category dropdown on the modal should have the correct options
-    Then the category dropdown on the modal should have "Register" selected
-    Then there should be the correct priority options
-    Then the "High" priority button on the edit task modal should be checked for the task with id "1"
+    And "Task Name" should appear before "Count cash in register"
+    And "Task Description" should appear before "do this asap please!"
+    And I should see "Task Category"
+    And I should see "Task Priority"
+    And the category dropdown on the modal should have the correct options
+    And the category dropdown on the modal should have "Register" selected
+    And there should be the correct priority options
+    And the "High" priority button on the edit task modal should be checked for the task with id "1"
 
   Scenario: I can edit a task's name
     When I tap the dots to edit "Count cash in register"
     When I enter task name "changed task name" on the edit task modal for the task with id "1"
     And I confirm "Edit Task" for the task with id "1"
     Then I should see "changed task name"
-    Then I should not see "Count cash in register"
+    And I should not see "Count cash in register"
 
   Scenario: I can edit a task's description
     When I tap the dots to edit "Count cash in register"
     When I enter task description "changed task description" on the edit task modal for the task with id "1"
     And I confirm "Edit Task" for the task with id "1"
     Then "changed task description" should be the description for "Count cash in register"
-    Then I should not see "do this asap please!"  
+    And I should not see "do this asap please!"  
 
   Scenario: I can edit a task's category
     When I tap the dots to edit "Count cash in register"
