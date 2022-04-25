@@ -68,6 +68,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airtable (0.0.9)
+      httparty
     bindex (0.8.1)
     bootsnap (1.10.3)
       msgpack (~> 1.2)
@@ -139,7 +141,8 @@ GEM
     docile (1.4.0)
     erubi (1.10.0)
     ffi (1.15.5)
-    ffi (1.15.5-x64-mingw32)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     formatador (1.1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -157,6 +160,9 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    httparty (0.20.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.2)
@@ -188,6 +194,7 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.4)
     multi_test (0.1.2)
+    multi_xml (0.6.0)
     nenv (0.3.0)
     net-imap (0.2.3)
       digest
@@ -206,8 +213,6 @@ GEM
       timeout
     nio4r (2.5.8)
     nokogiri (1.13.1-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.1-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
@@ -314,8 +319,6 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.1)
-      tzinfo (>= 1.0.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -340,12 +343,14 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  airtable
   bootsnap
   capybara
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
   debug
+  figaro
   guard-rspec
   importmap-rails
   jbuilder
