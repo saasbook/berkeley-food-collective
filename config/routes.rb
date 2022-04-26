@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   post 'checkmark' => 'tasks#checkmark'
   post 'logout' => 'sessions#destroy'
+  post 'update' => 'sessions#update'
 
   resources :announcements
   resources :tasks
