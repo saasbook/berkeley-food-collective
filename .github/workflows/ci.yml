@@ -4,10 +4,13 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     env:
       CCTR: ./cc-test-reporter
       BUNDLE_WITHOUT: production
       TZ: America/Los_Angeles
+      airtable_key: ${{ secrets.API_KEY }}
+      
     steps:
     - uses: actions/checkout@v1
     
@@ -16,12 +19,6 @@ jobs:
       with:
         ruby-version: 3.0.3
         bundler-cache: true
-    
-    - name: Get AirTable Keys
-      env:
-        PASS_KEY: ${{ secrets.KEY }}
-      run: |
-        gpg --passphrase "$PASS_KEY" --decrypt --output config/application.yml config/application.yml.asc
     
     - name: Setup CodeClimate test-reporter
       run: |
