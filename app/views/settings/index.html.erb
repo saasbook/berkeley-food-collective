@@ -1,0 +1,52 @@
+<!-- Tab navbar -->
+<div class="sticky-top">
+  <!-- General Nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark p-0">
+    <div class = "container-fluid">
+      <a class = "navbar-brand" href = "announcements">
+        <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 40, :height => 40} %>    
+      </a>
+      <small style="color: white;">Welcome <%= current_user.name %></small>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class = "navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item text-end">
+            <%= button_to "Settings", settings_path, method: :get, class: "nav-link text-light btn-danger" %>
+          </li>
+          <li class="nav-item text-end">
+            <%= button_to "Log Out", logout_path, class: "nav-link text-light btn-danger" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Settings -->
+<%= form_tag settings_path, :method => "post", :class => "p-2" do %>
+  <div class = "mb-2">
+    <%= label_tag :airtable_base_id, "Airtable Base ID", class: "form-label" %>
+    <%= text_field_tag :airtable_base_id, nil, :class => "form-control" %>
+  </div>
+  <div class = "mb-2">
+    <%= label_tag :users_table_id, "Users Table ID", class: "form-label" %>
+    <%= text_field_tag :users_table_id, nil, :class => "form-control" %>
+  </div>
+  <div class = "mb-2">
+    <%= label_tag :tasks_table_id, "Tasks Table ID", class: "form-label" %>
+    <%= text_field_tag :tasks_table_id, nil, :class => "form-control" %>
+  </div>
+  <div class = "mb-2">
+    <%= label_tag :announcements_table_id, "Announcements Table ID", class: "form-label" %>
+    <%= text_field_tag :announcements_table_id, nil, :class => "form-control" %>
+  </div>
+  <div class = "mb-2">
+    <%= label_tag :password, "Password", class: "form-label" %>
+    <%= password_field_tag :password, nil, :class => "form-control" %>
+  </div>
+  <div class = "mb-2 d-flex justify-content-center">
+    <%= submit_tag "Update Settings", :class => "btn btn-danger", :id => "submit-update-settings" %>
+  </div>
+<% end %>

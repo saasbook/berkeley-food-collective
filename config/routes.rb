@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post 'checkmark' => 'tasks#checkmark'
   post 'logout' => 'sessions#destroy'
 
+  get 'settings' => 'settings#index'
+  post 'settings' => 'settings#update'
+
   resources :announcements
   resources :tasks
 end
