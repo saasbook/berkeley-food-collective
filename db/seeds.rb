@@ -65,10 +65,10 @@ task_objects = [
 ]
 
 default_settings = {
-  airtable_base_id: 'airtableid',
-  users_table_id: 'usersid',
-  tasks_table_id: 'tasksid',
-  announcements_table_id: 'announcementsid',
+  airtable_base_id: 'appzTTr4CrP8jSSQY',
+  users_table_id: 'tbl1SuoIW99KUjDMx',
+  tasks_table_id: 'tblwRWq2x609uUzOv',
+  announcements_table_id: 'tblI0sVfVCRN7Wwla',
 }
 
 
