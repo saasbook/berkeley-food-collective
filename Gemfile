@@ -46,6 +46,7 @@ gem "airtable"
 gem "figaro"
 gem "byebug"
 gem "rdoc"
+gem "redcarpet"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

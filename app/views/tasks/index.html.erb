@@ -159,11 +159,11 @@
         <% end %>
         <p class="fw-lighter small m-0">
           <small>
-            Posted by <%= task.user_add %> at <%= task.added.strftime('%I:%M %p %Z') %> on <%= task.added.strftime('%b %d %Y') %>
+            Posted by <%= task.user_add %> 
          </small></p>
         <p class="m-0">
           <small>
-            <%= task.description %>
+            <%= raw task.description %>
           </small>
         </p>
       </div>
