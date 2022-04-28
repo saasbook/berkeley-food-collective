@@ -9,6 +9,8 @@ Feature: Logout
       | Roberto Cardenas | robertocardenas@bsfc.coop |
       | Andrew Mo        | andrewmo@bsfc.coop        |
 
+     And the default settings
+
   When I start on the login page
   When I fill in "session_email" with "robertocardenas@bsfc.coop"
   And I press "Login"

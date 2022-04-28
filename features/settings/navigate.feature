@@ -1,5 +1,5 @@
 Feature: Navigate
-  As a member of the Berkeley Food Collective
+  As a admin of the Berkeley Food Collective
   I want to be able to navigate to the settings page
   So that I can edit the applications settings
 
@@ -9,6 +9,8 @@ Feature: Navigate
       | Roberto Cardenas | robertocardenas@bsfc.coop |
       | Andrew Mo        | andrewmo@bsfc.coop        |
 
+    And the default settings
+
   When I start on the login page
   When I fill in "session_email" with "robertocardenas@bsfc.coop"
   And I press "Login"
@@ -16,11 +18,16 @@ Feature: Navigate
 
   Scenario: User wants to navigate to settings from annoucements page
     When I click on the menu tab
-    And I press "Settings"
+    And I press "Admin Settings"
+    And I fill in "password" with "ilovebfc"
+    And I press "Submit Password"
     Then I should see "Airtable Base ID"
+    
 
   Scenario: User wants to navigate to settings from the Tasks page
     When I follow "Tasks"
     And I click on the menu tab
-    And I press "Settings"
+    And I press "Admin Settings"
+    And I fill in "password" with "ilovebfc"
+    And I press "Submit Password"
     Then I should see "Airtable Base ID"

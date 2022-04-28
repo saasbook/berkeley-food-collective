@@ -19,7 +19,8 @@ Feature: Filtering Tasks
       | another done task      | someone did this       | Inventory   | 3        | 2001-01-01 | Roberto Cardenas |   2001-01-02  | Andrew Mo     | true      | 6 |
       | high priority 2        | high pri description 2 | Register    | 3        | 2001-01-01 | Roberto Cardenas |               |               | false     | 7 |
 
-
+    And the default settings
+    
     When I start on the login page
     And I fill in "session_email" with "robertocardenas@bsfc.coop"
     And I press "Login"
