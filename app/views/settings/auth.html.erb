@@ -24,30 +24,14 @@
   </nav>
 </div>
 
-<!-- Settings -->
-<h2 class = "p-2">Settings</h2>
-<%= form_tag settings_path, :method => "post", :class => "p-2" do %>
-  <div class = "mb-2">
-    <%= label_tag :airtable_base_id, "Airtable Base ID", class: "form-label" %>
-    <%= text_field_tag :airtable_base_id, nil, :class => "form-control" %>
-  </div>
-  <div class = "mb-2">
-    <%= label_tag :users_table_id, "Users Table ID", class: "form-label" %>
-    <%= text_field_tag :users_table_id, nil, :class => "form-control" %>
-  </div>
-  <div class = "mb-2">
-    <%= label_tag :tasks_table_id, "Tasks Table ID", class: "form-label" %>
-    <%= text_field_tag :tasks_table_id, nil, :class => "form-control" %>
-  </div>
-  <div class = "mb-2">
-    <%= label_tag :announcements_table_id, "Announcements Table ID", class: "form-label" %>
-    <%= text_field_tag :announcements_table_id, nil, :class => "form-control" %>
-  </div>
+<!-- Admin Authentication -->
+<h2 class = "p-2">Please enter the admin password to access admin settings</h2>
+<%= form_tag admin_auth_path, :method => "post", :class => "p-2" do %>
   <div class = "mb-2">
     <%= label_tag :password, "Password", class: "form-label" %>
     <%= password_field_tag :password, nil, :class => "form-control" %>
   </div>
   <div class = "mb-2 d-flex justify-content-center">
-    <%= submit_tag "Update Settings", :class => "btn btn-danger", :id => "submit-update-settings" %>
+    <%= submit_tag "Submit Password", :class => "btn btn-danger", :id => "submit-update-settings" %>
   </div>
 <% end %>

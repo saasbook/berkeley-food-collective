@@ -63,6 +63,16 @@ task_objects = [
   }
 ]
 
+default_settings = {
+  airtable_base_id: 'airtableid',
+  users_table_id: 'usersid',
+  tasks_table_id: 'tasksid',
+  announcements_table_id: 'announcementsid',
+}
+
 
 User.create(user_objects)
 Task.create(task_objects)
+@setting = Setting.create(default_settings)
+@setting.password = 'ilovebfc'
+@setting.save!
