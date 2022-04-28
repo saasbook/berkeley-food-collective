@@ -4,7 +4,15 @@ class SettingsController < ApplicationController
   end
 
   def update
-    flash[:success] = 'Changes saved!'
+    @setting = Setting.last
+    @setting.airtable_base_id = params[:airtable_base_id]
+    @setting.users_table_id = params[:users_table_id]
+    @setting.tasks_table_id = params[:tasks_table_id]
+    @setting.announcements_table_id = params[:announcements_table_id]
+    if params[:password] != ""
+      @setting.password = params[:password]
+    end
+    @setting.save!
     redirect_to settings_path
   end
 

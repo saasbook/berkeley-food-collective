@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 User.delete_all
 Task.delete_all
+Setting.delete_all
 
 user_objects = [
   {
