@@ -3,7 +3,8 @@ require 'active_support/all'
 class Announcement < ApplicationRecord
     def self.populate_from_airtable
         @client = Airtable::Client.new(ENV["airtable_api_key"])
-        @table = @client.table(ENV["airtable_app_key"], "tblI0sVfVCRN7Wwla")
+        @announcements_table_id = Setting.last.announcements_table_id
+        @table = @client.table(ENV["airtable_app_key"], @announcements_table_id)
         @records = @table.records
         Announcement.delete_all
         @records.each do |record|
