@@ -29,22 +29,22 @@
 <%= form_tag settings_path, :method => "post", :class => "p-2" do %>
   <div class = "mb-2">
     <%= label_tag :airtable_base_id, "Airtable Base ID", class: "form-label" %>
-    <%= text_field_tag :airtable_base_id, nil, :class => "form-control" %>
+    <%= text_field_tag :airtable_base_id, nil, :class => "form-control", :value => @setting.airtable_base_id %>
   </div>
   <div class = "mb-2">
     <%= label_tag :users_table_id, "Users Table ID", class: "form-label" %>
-    <%= text_field_tag :users_table_id, nil, :class => "form-control" %>
+    <%= text_field_tag :users_table_id, nil, :class => "form-control", :value => @setting.users_table_id %>
   </div>
   <div class = "mb-2">
     <%= label_tag :tasks_table_id, "Tasks Table ID", class: "form-label" %>
-    <%= text_field_tag :tasks_table_id, nil, :class => "form-control" %>
+    <%= text_field_tag :tasks_table_id, nil, :class => "form-control", :value => @setting.tasks_table_id %>
   </div>
   <div class = "mb-2">
     <%= label_tag :announcements_table_id, "Announcements Table ID", class: "form-label" %>
-    <%= text_field_tag :announcements_table_id, nil, :class => "form-control" %>
+    <%= text_field_tag :announcements_table_id, nil, :class => "form-control", :value => @setting.announcements_table_id %>
   </div>
   <div class = "mb-2">
-    <%= label_tag :password, "Password", class: "form-label" %>
+    <%= label_tag :password, "Change Admin Password", class: "form-label" %>
     <%= password_field_tag :password, nil, :class => "form-control" %>
   </div>
   <div class = "mb-2 d-flex justify-content-center">

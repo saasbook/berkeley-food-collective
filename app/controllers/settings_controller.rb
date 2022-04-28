@@ -1,5 +1,6 @@
 class SettingsController < ApplicationController
   def index
+    @setting = Setting.last
   end
 
   def update
