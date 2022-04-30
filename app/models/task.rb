@@ -8,8 +8,10 @@ class Task < ApplicationRecord
       @shift_assignment_array = record["e_mail:_(from_members)_(from_shift_assignment)"]
       if @shift_assignment_array.length != 0 && @shift_assignment_array.include?(user_email) 
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-        @parsed_description = markdown.render(record["Description"])
-        Task.find_or_create_by({name: record[:name], description: @parsed_description, category: "Airtable", priority: 2, user_add: "BSFC", completed: false})
+        @parsed_description = markdown.render(record["Description:"])
+        if !Task.exists?(name: record[:name])
+          Task.create({name: record[:name], description: @parsed_description, category: "Airtable", priority: 2, user_add: "BSFC", completed: false})
+        end
       end
     end
   end
