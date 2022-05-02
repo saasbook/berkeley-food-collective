@@ -5,5 +5,7 @@ Given(/the default settings/) do
     tasks_table_id: 'tblwRWq2x609uUzOv',
     announcements_table_id: 'tblI0sVfVCRN7Wwla',
   }
-  Setting.create(default_settings)
+  @setting = Setting.create(default_settings)
+  @setting.password = 'ilovebfc'
+  @setting.save!
 end
