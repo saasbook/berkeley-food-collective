@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   get 'settings' => 'settings#index'
   post 'settings' => 'settings#update'
-  get 'admin_auth' => 'settings#auth'
-  post 'admin_auth' => 'settings#authenticate'
+  get 'update_password' => 'settings#change_password'
+  post 'update_password' => 'settings#update_password'
 
   resources :announcements
   resources :tasks
