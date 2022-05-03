@@ -2,9 +2,10 @@ class User < ApplicationRecord
   def self.populate_from_airtable
     email_column = 'E-mail:'
     name_column = 'Full Name'
+
+    settings = Setting.last
     client = Airtable::Client.new(ENV['airtable_api_key'])
-    table = client.table(ENV['airtable_app_key'], 'tbl1SuoIW99KUjDMx')
-    #table = client.table(ENV['airtable_app_key'], 'tblUm0begj9P1Jz8J')
+    table = client.table(settings.airtable_base_id, settings.user_table_id)
     records = table.all
     all_curr_user_emails = User.all.pluck(:email)
     inactive_user_emails = User.where(active: false).pluck(:email)
