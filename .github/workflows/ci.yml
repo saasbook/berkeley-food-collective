@@ -9,7 +9,7 @@ jobs:
       CCTR: ./cc-test-reporter
       BUNDLE_WITHOUT: production
       TZ: America/Los_Angeles
-      airtable_key: ${{ secrets.API_KEY }}
+      airtable_api_key: ${{ secrets.API_KEY }}
       
     steps:
     - uses: actions/checkout@v1
