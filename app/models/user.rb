@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   def self.populate_from_airtable
     email_column = 'E-mail:'
     name_column = 'Full Name'
@@ -30,4 +31,5 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
 end

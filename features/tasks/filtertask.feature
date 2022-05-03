@@ -10,12 +10,12 @@ Feature: Viewing Tasks
       | Andrew Mo        | andrewmo@bsfc.coop        |
 
     Given the following tasks in the database
-      | name                   | description            | category    | priority | added      | user_add         | complete_time | user_complete | completed |
-      | Count cash in register | do this asap please!   | Register    | 3        | 2001-01-01 | Roberto Cardenas |               |               | false |
-      | Some other task        | someone completed this | Inventory   | 3        | 2001-01-01 | Roberto Cardenas |   2001-01-02  | Andrew Mo     | true |
-      | low priority 1         | low pri description 1  | Engineering | 1        | 2001-01-01 | Roberto Cardenas |               |               | false |
-      | low priority 2         | low pri description 2  | Register    | 1        | 2001-01-01 | Andrew Mo        |               |               | false |
-      | Completed register     | med pri description 1  | Register    | 2        | 2001-01-01 | Roberto Cardenas |   2001-01-02  |  Melody       | true |
+      | name                   | description            | category    | priority | added      | user_add         | complete_time | user_complete | completed | assigneduserstring |
+      | Count cash in register | do this asap please!   | Register    | 3        | 2001-01-01 | Roberto Cardenas |               |               | false     |                    |
+      | Some other task        | someone completed this | Inventory   | 3        | 2001-01-01 | Roberto Cardenas |   2001-01-02  | Andrew Mo     | true      |                    |
+      | low priority 1         | low pri description 1  | Engineering | 1        | 2001-01-01 | Roberto Cardenas |               |               | false     |                    |
+      | low priority 2         | low pri description 2  | Register    | 1        | 2001-01-01 | Andrew Mo        |               |               | false     |                    |
+      | Completed register     | med pri description 1  | Register    | 2        | 2001-01-01 | Roberto Cardenas |   2001-01-02  |  Melody       | true      | robertocardenas@bsfc.coop |
 
     And the default settings
 

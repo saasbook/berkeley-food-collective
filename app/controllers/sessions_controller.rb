@@ -5,6 +5,11 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def update
+    User.populate_from_airtable
+    #redirect_to login_path
+  end
+
   def create
     user = User.find_by(email: params[:session][:email].downcase)
 
