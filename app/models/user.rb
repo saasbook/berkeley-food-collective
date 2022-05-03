@@ -31,5 +31,4 @@ class User < ApplicationRecord
       user.save!
     end
   end
-
 end

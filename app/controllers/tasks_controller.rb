@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   def index
     Task.populate_from_airtable(current_user.email)
     @filter = params[:category]
-    @all_categories = %w[Inventory Register Engineering]
+    @all_categories = Setting.last.categories.split(/\s*,\s*/)
     @tasks = if @filter.blank?
                Task.where('assigneduserstring LIKE ?', '%' + current_user.email + '%').or(Task.where(priority: 3)).or(Task.where(priority: 1)).all
              else
