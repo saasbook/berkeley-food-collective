@@ -2,7 +2,7 @@ class Task < ApplicationRecord
 
   def self.populate_from_airtable(user_email)
     client = Airtable::Client.new(ENV['airtable_api_key'])
-    table = client.table(ENV['airtable_app_key'], 'tblwRWq2x609uUzOv')
+    table = client.table(Setting.last.airtable_base_id, Setting.last.tasks_table_id)
     records = table.all
     #Task.where(priority: 2).delete_all unless Task.last.added.today?
     records.each do |record|
