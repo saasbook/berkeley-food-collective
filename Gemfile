@@ -47,6 +47,7 @@ gem "figaro"
 gem "byebug"
 gem "rdoc"
 gem "redcarpet"
+gem "bcrypt"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

@@ -9,6 +9,7 @@ Feature: Login
       | Roberto Cardenas | robertocardenas@bsfc.coop |
       | Andrew Mo        | andrewmo@bsfc.coop        |
 
+    And the default settings
     When I start on the login page
 
   Scenario: User inputs an email that is in the database

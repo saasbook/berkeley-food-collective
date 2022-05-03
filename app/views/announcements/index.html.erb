@@ -1,17 +1,20 @@
 <!-- Tab navbar -->
-<div class="sticky-top">
+<div class="sticky-top bg-light">
   <!-- General Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-dark p-0">
     <div class = "container-fluid">
-      <a class = "navbar-brand" href = "#">
+      <a class = "navbar-brand" href = "announcements">
         <%= image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 40, :height => 40} %>    
       </a>
       <small style="color: white;">Welcome <%= current_user.name %></small>
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="hamburger-menu" class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class = "navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+          <li class="nav-item text-end">
+            <%= button_to "Admin Settings", settings_path, method: :get, class: "nav-link text-light btn-danger" %>
+          </li>
           <li class="nav-item text-end">
             <%= button_to "Log Out", logout_path, class: "nav-link text-light btn-danger" %>
           </li>
@@ -23,8 +26,8 @@
   <!-- Announcements nav bar -->
   <div>
     <!-- Switch between tabs -->
-    <div class="dropdown w-100 px-1 border-bottom border-dark">
-      <a class="btn dropdown-toggle fs-1 fw-bold" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="dropdown w-100 px-1 border-bottom border-dark light">
+      <a class="btn dropdown-toggle fs-1 fw-bold btn-light" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         Announcements
       </a>
       <ul class="dropdown-menu w-100 " style="box-shadow: 0 20px 20px grey" aria-labelledby="navigation-dropdown">

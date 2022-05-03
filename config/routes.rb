@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   post 'logout' => 'sessions#destroy'
   post 'update' => 'sessions#update'
 
+  get 'settings' => 'settings#index'
+  post 'settings' => 'settings#update'
+  get 'update_password' => 'settings#change_password'
+  post 'update_password' => 'settings#update_password'
+
   resources :announcements
   resources :tasks
 end
