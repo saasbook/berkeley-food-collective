@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_14_215447) do
+ActiveRecord::Schema.define(version: 2022_04_28_060157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2022_04_14_215447) do
     t.datetime "eventtime", precision: 6
     t.string "description"
     t.string "location"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "airtable_base_id"
+    t.string "users_table_id"
+    t.string "tasks_table_id"
+    t.string "announcements_table_id"
+    t.string "admin_password_hash"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasks", force: :cascade do |t|

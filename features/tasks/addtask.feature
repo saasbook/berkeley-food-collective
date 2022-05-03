@@ -17,6 +17,8 @@ Feature: Adding Tasks
       | low priority 2         | low pri description 2  | Register    | 1        | 2001-01-01 | Andrew Mo        |               |               | false |
       | med priority           | med pri description 1  | Register    | 2        | 2001-01-01 | Roberto Cardenas |               |               | false |
 
+    And the default settings
+
     When I start on the login page
     And I fill in "session_email" with "robertocardenas@bsfc.coop"
     And I press "Login"

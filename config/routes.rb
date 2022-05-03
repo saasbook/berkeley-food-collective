@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   post 'checkmark' => 'tasks#checkmark'
   post 'logout' => 'sessions#destroy'
 
+  get 'settings' => 'settings#index'
+  post 'settings' => 'settings#update'
+  get 'update_password' => 'settings#change_password'
+  post 'update_password' => 'settings#update_password'
+
   resources :announcements
   resources :tasks
 end
