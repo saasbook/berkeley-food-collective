@@ -34,7 +34,7 @@ jobs:
     - name: Setup API key
       run: |
         export KEY=${{ secrets.PASSPHRASE }}
-        gpg --passphrase "$KEY" --decrypt --output config/application.yml config/application.yml.asc
+        gpg --passphrase "$KEY" --decrypt --batch --yes --passphrase "$KEY" --output config/application.yml config/application.yml.asc
         
         
     - name: Setup PostgreSQL
