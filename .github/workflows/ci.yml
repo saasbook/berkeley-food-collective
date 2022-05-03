@@ -30,12 +30,11 @@ jobs:
       run: |
         gem install bundler
         bundle install
-    
+        
     - name: Setup API key
       run: |
         export KEY=${{ secrets.PASSPHRASE }}
         gpg --passphrase "$KEY" --decrypt --batch --yes --passphrase "$KEY" --output config/application.yml config/application.yml.asc
-        
         
     - name: Setup PostgreSQL
       run: |
@@ -62,5 +61,5 @@ jobs:
       run: |
         export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
         ./cc-test-reporter sum-coverage coverage/codeclimate.*.json
-        ./cc-test-reporter upload-coverage -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
-        ./cc-test-reporter after-build -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
+        ./cc-test-reporter upload-coverage -r ${{ secrets.CC_TEST_REPORT_ID }}
+        ./cc-test-reporter after-build -r ${{ secrets.CC_TEST_REPORT_ID }}
