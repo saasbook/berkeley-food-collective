@@ -6,19 +6,19 @@ class Task < ApplicationRecord
     @records = @table.records
     #Task.where(priority: 2).delete_all unless Task.last.added.today?
     @records.each do |record|
-      @shift_assignment_array = record['e_mail:_(from_members)_(from_shift_assignment)']
-      @tmpassigneduserstring = ''
-      unless @shift_assignment_array.empty?
-        @shift_assignment_array.each do |user|
-          @tmpassigneduserstring += user
+      shift_assignment_array = record['e_mail:_(from_members)_(from_shift_assignment)']
+      tmpassigneduserstring = ''
+      unless shift_assignment_array.empty?
+        shift_assignment_array.each do |user|
+          tmpassigneduserstring += user
         end
       end
-      if @shift_assignment_array.length != 0 && @shift_assignment_array.include?(user_email) 
+      if shift_assignment_array.length != 0 && shift_assignment_array.include?(user_email) 
         markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-        @parsed_description = markdown.render(record['Description:'])
+        parsed_description = markdown.render(record['Description:'])
         unless Task.exists?(name: record[:name])
-          Task.create({ name: record[:name], description: @parsed_description, category: 'Airtable',
-                        priority: 2, user_add: 'BSFC', completed: false, assigneduserstring: @tmpassigneduserstring })
+          Task.create({ name: record[:name], description: parsed_description, category: 'Airtable',
+                        priority: 2, user_add: 'BSFC', completed: false, assigneduserstring: tmpassigneduserstring })
         end
       end
     end

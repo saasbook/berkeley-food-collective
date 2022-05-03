@@ -38,3 +38,6 @@
 .idea/
 
 coverage/
+
+#Ignore Byebug history
+.byebug_history
