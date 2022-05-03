@@ -1,22 +1,25 @@
 name: build
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     env:
       CCTR: ./cc-test-reporter
       BUNDLE_WITHOUT: production
       TZ: America/Los_Angeles
+      airtable_api_key: ${{ secrets.API_KEY }}
+      
     steps:
     - uses: actions/checkout@v1
     
     - name: Install Ruby (3.0)
-      uses: actions/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.3
         bundler-cache: true
-        
+    
     - name: Setup CodeClimate test-reporter
       run: |
         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -26,7 +29,12 @@ jobs:
     - name: Install bundler and dependencies
       run: |
         gem install bundler
-        bundle install --jobs 4 --retry 3
+        bundle install
+        
+    - name: Setup API key
+      run: |
+        export KEY=${{ secrets.PASSPHRASE }}
+        gpg --passphrase "$KEY" --decrypt --batch --yes --passphrase "$KEY" --output config/application.yml config/application.yml.asc
         
     - name: Setup PostgreSQL
       run: |
@@ -37,21 +45,21 @@ jobs:
     - name: Setup database
       run: |
         bundle exec rake db:create db:migrate
-        
+    
+    - name: run Cucumber tests and capture coverage
+      run: |
+        echo "API key is:${{env.airtable_api_key}}"
+        bundle exec cucumber
+        ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
+    
     - name: run RSpec tests and capture coverage
       run: |
         bundle exec rspec
         ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov
-        
-    - name: run Cucumber tests and capture coverage
-      run: |
-        bundle exec cucumber
-        ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
-
 
     - name: Publish code coverage
       run: |
         export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
         ./cc-test-reporter sum-coverage coverage/codeclimate.*.json
-        ./cc-test-reporter upload-coverage -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
-        ./cc-test-reporter after-build -r 1d6761e54cf0ce3a62d015dbdef28a91f8440d1ccaa4f86a5dd9ecf9ff58cbf4
+        ./cc-test-reporter upload-coverage -r ${{ secrets.CC_TEST_REPORT_ID }}
+        ./cc-test-reporter after-build -r ${{ secrets.CC_TEST_REPORT_ID }}

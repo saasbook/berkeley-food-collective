@@ -1,0 +1,9 @@
+.center {
+    text-align: center;
+    padding: 10px;
+}
+
+.triple-dot-menu:after {
+    content: '\2807';
+    font-size: 30px;
+}
