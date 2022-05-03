@@ -48,7 +48,6 @@ jobs:
     
     - name: run Cucumber tests and capture coverage
       run: |
-        echo "API key is:${{env.airtable_api_key}}"
         bundle exec cucumber
         ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
     
