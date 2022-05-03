@@ -1,9 +1,9 @@
 class Task < ApplicationRecord
 
   def self.populate_from_airtable(user_email)
-    @client = Airtable::Client.new(ENV['airtable_api_key'])
-    @table = @client.table(ENV['airtable_app_key'], 'tblwRWq2x609uUzOv')
-    @records = @table.records.all
+    client = Airtable::Client.new(ENV['airtable_api_key'])
+    table = client.table(ENV['airtable_app_key'], 'tblwRWq2x609uUzOv')
+    records = table.all
     #Task.where(priority: 2).delete_all unless Task.last.added.today?
     records.each do |record|
       shift_assignment_array = record['e_mail:_(from_members)_(from_shift_assignment)']
