@@ -57,6 +57,10 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     Rails.application.load_seed # loading seeds
+    settings = Setting.last
+    settings.airtable_base_id = 'appBVUbGPToiaKXQK'
+    settings.users_table_id = 'tblUm0begj9P1Jz8J'
+    settings.save!
   end
 
 # The settings below are suggested to provide a good initial experience

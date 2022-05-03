@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
     settings = Setting.last
     client = Airtable::Client.new(ENV['airtable_api_key'])
-    table = client.table(settings.airtable_base_id, settings.user_table_id)
+    table = client.table(settings.airtable_base_id, settings.users_table_id)
     records = table.all
     all_curr_user_emails = User.all.pluck(:email)
     inactive_user_emails = User.where(active: false).pluck(:email)
