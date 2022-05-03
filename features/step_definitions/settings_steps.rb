@@ -1,9 +1,9 @@
 Given(/the default settings/) do
   default_settings = {
-    airtable_base_id: 'appzTTr4CrP8jSSQY',
-    users_table_id: 'tbl1SuoIW99KUjDMx',
-    tasks_table_id: 'tblwRWq2x609uUzOv',
-    announcements_table_id: 'tblI0sVfVCRN7Wwla',
+    airtable_base_id: 'appBVUbGPToiaKXQK',
+    users_table_id: 'tblUm0begj9P1Jz8J',
+    tasks_table_id: 'tblK100SDUB0m1KU5',
+    announcements_table_id: 'tblgi0d7vY2OCauSw',
   }
   @setting = Setting.create(default_settings)
   @setting.password = 'ilovebfc'
