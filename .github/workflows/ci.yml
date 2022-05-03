@@ -30,6 +30,12 @@ jobs:
       run: |
         gem install bundler
         bundle install
+    
+    - name: Setup API key
+      run: |
+        export KEY=${{ secrets.PASSPHRASE }}
+        gpg --passphrase "$KEY" --decrypt --output config/application.yml config/application.yml.asc
+        
         
     - name: Setup PostgreSQL
       run: |
