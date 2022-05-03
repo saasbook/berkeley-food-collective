@@ -90,10 +90,6 @@
               <%= label_tag :priority_low, 'Low', class: "form-check-label text-success" %>
             </div>
             <div class="form-check form-check-inline">
-              <%= radio_button_tag :priority, 2, false, class: "form-check-input" %>
-              <%= label_tag :priority_medium, 'Medium', class: "form-check-label text-warning" %>
-            </div>
-            <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 3, false, class: "form-check-input" %>
               <%= label_tag :priority_high, 'High', class: "form-check-label text-danger" %>
             </div>
@@ -106,23 +102,32 @@
     </div>
   </div>
 </div>
-
-<div class="center">
-  <h5>Incomplete Tasks</h5>
-</div>
+<% if @num_incomplete.positive? %>
+  <div class="center">
+    <h1>Incomplete Tasks</h1>
+  </div>
+<% end %>
 <% @tasks.each do |task| %>
   <% if @count == @num_incomplete && !@completed %>
     <% @count = 0 %>
     <% @completed = true %>
     <div class="center">
-      <h5>Completed Tasks</h5>
+      <h1>Completed Tasks</h1>
+    </div>
+  <% end %>
+  <% unless @completed %>
+    <div class="center">
+      <h5>
+        <%= incomplete_subsection @count, task.priority %>
+      </h5>
     </div>
   <% end %>
   <!-- Tasks div -->
   <div id="tasks-div" class="container">
     <!-- Task panel -->
-    <div id='task-panel-<%= task.name %>' class="task-panel row px-1 py-1 border-bottom px-1<%= @count == 0 ? " border-top" : "" %> border-dark">
+    <div id='task-panel-<%= task.name %>' class="task-panel row px-1 py-1 border-bottom px-1<%= @sub_count == 0 || @count == 0 ? " border-top" : "" %> border-dark">
       <% @count += 1 %>
+      <% @sub_count += 1 %>
       <!-- Checkbox -->
       <div class="col-1 d-flex flex-column justify-content-center align-items-center">
         <% if task.completed %>
@@ -157,11 +162,11 @@
         <% end %>
         <p class="fw-lighter small m-0">
           <small>
-            Posted by <%= task.user_add %> at <%= task.added.strftime('%I:%M %p %Z') %> on <%= task.added.strftime('%b %d %Y') %>
+            Posted by <%= task.user_add %> 
          </small></p>
         <p class="m-0">
           <small>
-            <%= task.description %>
+            <%= raw task.description %>
           </small>
         </p>
       </div>
@@ -191,7 +196,7 @@
             <%= task.name %>
           </h5>
           <div class = "d-flex justify-content-center">
-            <%= task.description %>
+            <%= raw task.description %>
           </div>
           <div>&nbsp</div>
           <% if task.completed %>
