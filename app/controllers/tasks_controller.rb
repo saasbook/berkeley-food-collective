@@ -7,7 +7,8 @@ class TasksController < ApplicationController
     @tasks = if @filter.blank?
                Task.where('assigneduserstring LIKE ?', '%' + current_user.email + '%').or(Task.where(priority: 3)).or(Task.where(priority: 1)).all
              else
-               Task.where(category: @filter).where('assigneduserstring LIKE ?', '%' + current_user.email + '%').or(Task.where(priority: 3)).or(Task.where(priority: 1)).all
+               Task.where(category: @filter).where('assigneduserstring LIKE ?', '%' + current_user.email + '%').or(Task.where(priority: 3)
+               .where(category: @filter)).or(Task.where(priority: 1).where(category:@filter)).all
              end
     incomplete_task = @tasks.where(completed: false).order(priority: :desc, added: :asc)
     @num_high = incomplete_task.where(priority: 3).count
