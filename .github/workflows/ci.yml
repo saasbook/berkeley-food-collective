@@ -9,7 +9,7 @@ jobs:
       CCTR: ./cc-test-reporter
       BUNDLE_WITHOUT: production
       TZ: America/Los_Angeles
-      airtable_key: ${{ secrets.API_KEY }}
+      airtable_api_key: ${{ secrets.API_KEY }}
       
     steps:
     - uses: actions/checkout@v1
@@ -31,6 +31,11 @@ jobs:
         gem install bundler
         bundle install
         
+    - name: Setup API key
+      run: |
+        export KEY=${{ secrets.PASSPHRASE }}
+        gpg --passphrase "$KEY" --decrypt --batch --yes --passphrase "$KEY" --output config/application.yml config/application.yml.asc
+        
     - name: Setup PostgreSQL
       run: |
         sudo apt-get install postgresql libpq-dev
@@ -43,6 +48,7 @@ jobs:
     
     - name: run Cucumber tests and capture coverage
       run: |
+        echo "API key is:${{env.airtable_api_key}}"
         bundle exec cucumber
         ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
     
