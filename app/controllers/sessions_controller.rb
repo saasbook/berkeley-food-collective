@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login
-
-  def index
-  end
+  before_action :update
 
   def new
+  end
+
+  def update
+    User.populate_from_airtable
+    #redirect_to login_path
   end
 
   def create
