@@ -41,14 +41,11 @@ jobs:
       run: |
         bundle exec rake db:create db:migrate
     
-    - name: Decrypt keys
-      run: |
-        gpg --passphrase "jumpstartbigcart" --decrypt \ --output config/application.yml config/application.yml.asc
-    
     - name: run Cucumber tests and capture coverage
       env: 
         airtable_api_key: ${{ secrets.API_KEY }}
       run: |
+        echo airtable_api_key
         bundle exec cucumber
         ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
     
