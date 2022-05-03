@@ -42,6 +42,8 @@ jobs:
         bundle exec rake db:create db:migrate
     
     - name: run Cucumber tests and capture coverage
+      env: 
+        airtable_api_key: ${{ secrets.API_KEY }}
       run: |
         bundle exec cucumber
         ./cc-test-reporter format-coverage --output coverage/codeclimate.$SUITE.json --input-type simplecov 
