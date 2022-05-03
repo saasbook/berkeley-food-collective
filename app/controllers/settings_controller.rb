@@ -10,6 +10,7 @@ class SettingsController < ApplicationController
       @setting.users_table_id = params[:users_table_id]
       @setting.tasks_table_id = params[:tasks_table_id]
       @setting.announcements_table_id = params[:announcements_table_id]
+      @setting.categories = params[:categories]
       @setting.save!
       flash[:success] = "successfully updated settings!"
       redirect_to settings_path

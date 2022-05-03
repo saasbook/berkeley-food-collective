@@ -44,6 +44,10 @@
     <%= text_field_tag :announcements_table_id, nil, :class => "form-control", :value => @setting.announcements_table_id %>
   </div>
   <div class = "mb-2">
+    <%= label_tag :categories, "Task Categories (Please input as a comma separated list!)", class: "form-label" %>
+    <%= text_field_tag :categories, nil, :class => "form-control", :value => @setting.categories %>
+  </div>
+  <div class = "mb-2">
     <%= label_tag :password, "Enter Admin Password to update changes", class: "form-label" %>
     <%= password_field_tag :password, nil, :class => "form-control" %>
   </div>
