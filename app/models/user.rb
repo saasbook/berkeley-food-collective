@@ -14,7 +14,7 @@ class User < ApplicationRecord
     # create
     to_create = airtable_emails.difference(all_curr_user_emails)
     to_create.each do |email|
-      User.create({ name: records.select { |record| record.email_column == email }.first[name_column], email: email })
+      User.create({ name: records.select { |record| record[email_column] == email }.first[name_column], email: email })
     end
     # deactivate
     to_deactivate = all_curr_user_emails.difference(airtable_emails)
