@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
+    flash[:primary] = 'Successfully logged out.'
     redirect_to login_path
   end
 
