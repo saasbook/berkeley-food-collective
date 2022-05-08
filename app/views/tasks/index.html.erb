@@ -115,7 +115,7 @@
       <h1>Completed Tasks</h1>
     </div>
   <% end %>
-  <% unless @completed && incomplete_subsection(@count, task.priority) != 'no sub section' %>
+  <% unless @completed && !subsection?(@count, task.priority) %>
     <div class="center">
       <h5>
         <%= incomplete_subsection @count, task.priority %>

@@ -25,11 +25,11 @@ module TasksHelper
       @sub_count = 0
       subsection_titles[curr_priority - 1]
     else
-      "no sub section"
+      'no sub section'
     end
   end
 
   def subsection?(curr_count, curr_priority)
-    incomplete_subsection(curr_count, curr_priority) != "no sub section"
+    incomplete_subsection(curr_count, curr_priority) != 'no sub section'
   end
 end
