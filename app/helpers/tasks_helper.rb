@@ -24,10 +24,12 @@ module TasksHelper
        (curr_count == @num_high + @num_med && @num_low.positive?)
       @sub_count = 0
       subsection_titles[curr_priority - 1]
+    else
+      "no sub section"
     end
   end
 
   def subsection?(curr_count, curr_priority)
-    incomplete_subsection(curr_count, curr_priority) != null
+    incomplete_subsection(curr_count, curr_priority) != "no sub section"
   end
 end
