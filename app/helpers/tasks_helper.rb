@@ -26,4 +26,8 @@ module TasksHelper
       subsection_titles[curr_priority - 1]
     end
   end
+
+  def subsection?(curr_count, curr_priority)
+    incomplete_subsection(curr_count, curr_priority) != null
+  end
 end
