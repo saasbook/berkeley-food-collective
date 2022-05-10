@@ -2,14 +2,6 @@ class SessionsController < ApplicationController
   skip_before_action :require_login
   before_action :require_update_airtable, only: [:create]
 
-  def new
-  end
-
-  def update
-    User.populate_from_airtable
-    #redirect_to login_path
-  end
-
   def create
     user = User.find_by(email: params[:session][:email].downcase)
 
