@@ -30,7 +30,7 @@ Feature: Navigate
     And I follow "Click here to change Admin Password"
     And I fill in "password" with "ilovebfc"
     And I fill in "new_password" with "new"
-    And I fill in "confirm_new_password" with "new"
+    And I fill in "new_password_confirmation" with "new"
     And I press "Change Password"
     Then I should see "Successfully updated admin password!"
 
@@ -38,7 +38,7 @@ Feature: Navigate
     And I follow "Click here to change Admin Password"
     And I fill in "password" with "wrongpass"
     And I fill in "new_password" with "new"
-    And I fill in "confirm_new_password" with "new"
+    And I fill in "new_password_confirmation" with "new"
     And I press "Change Password"
     Then I should see "Incorrect password!"
 
@@ -46,12 +46,12 @@ Feature: Navigate
     And I follow "Click here to change Admin Password"
     And I fill in "password" with "ilovebfc"
     And I press "Change Password"
-    Then I should see "Please enter and confirm your new password"
+    Then I should see "New password can't be blank"
 
   Scenario: User wants to update password but mistypes new password
     And I follow "Click here to change Admin Password"
     And I fill in "password" with "ilovebfc"
     And I fill in "new_password" with "new"
-    And I fill in "confirm_new_password" with "new1"
+    And I fill in "new_password_confirmation" with "new1"
     And I press "Change Password"
-    Then I should see "Please make sure the 'New Password' and 'Confirm New Password' fields match"
+    Then I should see "New password confirmation doesn't match New password"

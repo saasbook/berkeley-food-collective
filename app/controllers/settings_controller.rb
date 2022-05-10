@@ -11,9 +11,13 @@ class SettingsController < ApplicationController
       @setting.tasks_table_id = params[:tasks_table_id]
       @setting.announcements_table_id = params[:announcements_table_id]
       @setting.categories = params[:categories]
-      @setting.save!
-      flash[:success] = "successfully updated settings!"
-      redirect_to settings_path
+      if not @setting.save # @setting.save should return false if validation fails
+        flash[:danger] = @setting.errors.full_messages.to_sentence
+        redirect_to settings_path
+      else
+        flash[:success] = "successfully updated settings!"
+        redirect_to settings_path
+      end
     else
       flash[:danger] = "incorrect password!"
       redirect_to settings_path
@@ -22,20 +26,16 @@ class SettingsController < ApplicationController
 
   def update_password 
     @setting = Setting.last
-    
+
     if @setting.password == params[:password]
-      if params[:new_password] == params[:confirm_new_password]
-        if params[:new_password] != ""
-          @setting.password = params[:new_password]
-          @setting.save!
-          flash[:success] = "Successfully updated admin password!"
-          redirect_to update_password_path
-        else
-          flash[:danger] = "Please enter and confirm your new password"
-          redirect_to update_password_path
-        end
-      else #passwords dont match
-        flash[:danger] = "Please make sure the 'New Password' and 'Confirm New Password' fields match"
+      @setting.new_password = params[:new_password]
+      @setting.new_password_confirmation = params[:new_password_confirmation]
+      @setting.password = params[:new_password]
+      if not @setting.save(context: :update_password) #@setting.save should return false if validation fails
+        flash[:danger] = @setting.errors.full_messages.to_sentence
+        redirect_to update_password_path
+      else
+        flash[:success] = "Successfully updated admin password!"
         redirect_to update_password_path
       end
     else #wrong password

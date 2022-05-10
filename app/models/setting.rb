@@ -2,6 +2,9 @@ require 'bcrypt'
 
 class Setting < ApplicationRecord
     include BCrypt
+    attr_accessor :new_password
+    validates_confirmation_of :new_password
+    validates :new_password, :new_password_confirmation, presence: true, on: :update_password
 
     def password
         @password ||= Password.new(admin_password_hash)
