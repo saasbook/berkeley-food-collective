@@ -166,7 +166,11 @@
          </small></p>
         <p class="m-0">
           <small>
-            <%= raw task.description %>
+            <% if task.priority == 2 %>
+              <%= sanitize task.description %>
+            <% else %>
+              <%= task.description %>
+            <% end %>
           </small>
         </p>
       </div>
@@ -196,7 +200,11 @@
             <%= task.name %>
           </h5>
           <div class="d-flex justify-content-center">
-            <%= raw task.description %>
+            <% if task.priority == 2 %>
+              <%= sanitize task.description %>
+            <% else %>
+              <%= task.description %>
+            <% end %>
           </div>
           <div>&nbsp</div>
           <% if task.completed %>
