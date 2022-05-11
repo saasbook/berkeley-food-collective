@@ -4,11 +4,12 @@ class TasksController < ApplicationController
     Task.populate_from_airtable(current_user.email)
     @filter = params[:category]
     @all_categories = Setting.last.categories.split(/\s*,\s*/)
+    user_airtable_tasks = Task.where('assigneduserstring LIKE ?', '%' + current_user.email + '%')
+    user_tasks = user_airtable_tasks.or(Task.where(priority: [1, 3]))
     @tasks = if @filter.blank?
-               Task.where('assigneduserstring LIKE ?', '%' + current_user.email + '%').or(Task.where(priority: 3)).or(Task.where(priority: 1)).all
+               user_tasks
              else
-               Task.where(category: @filter).where('assigneduserstring LIKE ?', '%' + current_user.email + '%').or(Task.where(priority: 3)
-               .where(category: @filter)).or(Task.where(priority: 1).where(category:@filter)).all
+               user_tasks.where(category: @filter).all
              end
     incomplete_task = @tasks.where(completed: false).order(priority: :desc, added: :asc)
     @num_high = incomplete_task.where(priority: 3).count
