@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login
-
-  def new
-  end
+  before_action :require_update_airtable, only: [:create]
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -18,6 +16,15 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
+    flash[:primary] = 'Successfully logged out.'
     redirect_to login_path
   end
+
+  private
+
+  def require_update_airtable
+    User.populate_from_airtable
+  end
+
 end
+

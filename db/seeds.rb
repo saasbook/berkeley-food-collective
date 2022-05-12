@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 User.delete_all
 Task.delete_all
+Setting.delete_all
 
 user_objects = [
   {
@@ -63,6 +64,17 @@ task_objects = [
   }
 ]
 
+default_settings = {
+  airtable_base_id: 'appzTTr4CrP8jSSQY',
+  users_table_id: 'tbl1SuoIW99KUjDMx',
+  tasks_table_id: 'tblwRWq2x609uUzOv',
+  announcements_table_id: 'tblI0sVfVCRN7Wwla',
+  categories: 'Inventory, Register, Engineering'
+}
+
 
 User.create(user_objects)
 Task.create(task_objects)
+@setting = Setting.create(default_settings)
+@setting.password = 'ilovebfc'
+@setting.save!

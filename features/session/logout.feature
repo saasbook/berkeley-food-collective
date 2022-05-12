@@ -9,16 +9,20 @@ Feature: Logout
       | Roberto Cardenas | robertocardenas@bsfc.coop |
       | Andrew Mo        | andrewmo@bsfc.coop        |
 
+     And the default settings
+
   When I start on the login page
   When I fill in "session_email" with "robertocardenas@bsfc.coop"
   And I press "Login"
   Then I should see "Announcements"
 
   Scenario: User wants to logout from the Announcements page
-    When I follow "Log Out"
+    When I click on the menu tab
+    And I press "Log Out"
     Then I should see "Welcome to the Berkeley Student Food Collective App!"
 
   Scenario: User wants to logout from the Tasks page
     When I follow "Tasks"
-    And I follow "Log Out"
+    And I click on the menu tab
+    And I press "Log Out"
     Then I should see "Welcome to the Berkeley Student Food Collective App!"

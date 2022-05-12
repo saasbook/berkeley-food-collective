@@ -17,6 +17,8 @@ Feature: Adding Tasks
       | low priority 2         | low pri description 2  | Register    | 1        | 2001-01-01 | Andrew Mo        |               |               | false |
       | med priority           | med pri description 1  | Register    | 2        | 2001-01-01 | Roberto Cardenas |               |               | false |
 
+    And the default settings
+
     When I start on the login page
     And I fill in "session_email" with "robertocardenas@bsfc.coop"
     And I press "Login"
@@ -53,16 +55,15 @@ Feature: Adding Tasks
     And I enter task description "task 1 description" on the add task modal
     And I pick "Engineering" from the category dropdown on the add task modal
     Then the category dropdown on the modal should have "Engineering" selected
-    And I pick "Medium" as the priority on the add task modal
-    Then the "Medium" priority button should be checked
+    And I pick "High" as the priority on the add task modal
+    Then the "High" priority button should be checked
     And I add the task
-    Then I should see "task 1"
+    And I should see "task 1"
     And "task 1 description" should be the description for "task 1"
     And "Engineering" should be the category for "task 1"
-    And "Count cash in register" should appear before "task 1"
     And "task 1" should appear before "low priority 1"
     And "Roberto" should be the user_added for "task 1"
-    And "task 1" should not say completed
+    Then "task 1" should not say completed
 
 
 

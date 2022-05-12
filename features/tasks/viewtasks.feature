@@ -10,12 +10,14 @@ Feature: Viewing Tasks
       | Andrew Mo        | andrewmo@bsfc.coop        |
 
     Given the following tasks in the database
-      | name                   | description            | category    | priority | added      | user_add         | complete_time | user_complete | completed |
-      | Count cash in register | do this asap please!   | Register    | 3        | 2001-01-01 | Roberto Cardenas |               |               | false |
-      | Finished task          | someone completed this | Inventory   | 3        | 2001-01-01 | Roberto Cardenas |   2001-01-02  | Andrew Mo     | true |
-      | low priority 1         | low pri description 1  | Engineering | 1        | 2001-01-01 | Roberto Cardenas |               |               | false |
-      | low priority 2         | low pri description 2  | Register    | 1        | 2001-01-01 | Andrew Mo        |               |               | false |
-      | med priority           | med pri description 1  | Register    | 2        | 2001-01-01 | Roberto Cardenas |               |               | false |
+      | name                   | description            | category    | priority | added      | user_add         | complete_time | user_complete | completed | assigneduserstring |
+      | Count cash in register | do this asap please!   | Register    | 3        | 2001-01-01 | Roberto Cardenas |               |               | false     |                    |
+      | Finished task          | someone completed this | Inventory   | 3        | 2001-01-01 | Roberto Cardenas |   2001-01-02  | Andrew Mo     | true      |                    |
+      | low priority 1         | low pri description 1  | Engineering | 1        | 2001-01-01 | Roberto Cardenas |               |               | false     |                    |
+      | low priority 2         | low pri description 2  | Register    | 1        | 2001-01-01 | Andrew Mo        |               |               | false     |                    |
+      | med priority           | med pri description 1  | Register    | 2        | 2001-01-01 | Roberto Cardenas |               |               | false     | robertocardenas@bsfc.coop |
+
+    And the default settings
 
     When I start on the login page
     And I fill in "session_email" with "robertocardenas@bsfc.coop"
@@ -36,17 +38,14 @@ Feature: Viewing Tasks
 
   Scenario: Tasks show up in priority order
     Then "Count cash in register" should appear before "low priority 1"
-    And "Count cash in register" should appear before "low priority 2"
-    And "med priority" should appear before "low priority 1"
-    And "med priority" should appear before "low priority 2"
+    Then "Count cash in register" should appear before "low priority 2"
     And "low priority 2" should appear before "Finished task"
 
   Scenario: Tasks have correct priority marker
     Then "!!!" should be the priority for "Count cash in register"
-    And "!!!" should be the priority for "Finished task"
-    And "!" should be the priority for "low priority 1"
-    And "!" should be the priority for "low priority 2"
-    And "!!" should be the priority for "med priority"
+    Then "!!!" should be the priority for "Finished task"
+    Then "!" should be the priority for "low priority 1"
+    Then "!" should be the priority for "low priority 2"
 
   Scenario: Tasks have correct descriptions
     Then "do this asap please!" should be the description for "Count cash in register"

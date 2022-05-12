@@ -1,18 +1,24 @@
 class TasksController < ApplicationController
 
   def index
+    Task.populate_from_airtable(current_user.email)
     @filter = params[:category]
-    @all_categories = %w[Inventory Register Engineering]
+    @all_categories = Setting.last.categories.split(/\s*,\s*/)
+    user_airtable_tasks = Task.where('assigneduserstring LIKE ?', '%' + current_user.email + '%')
+    user_tasks = user_airtable_tasks.or(Task.where(priority: [1, 3]))
     @tasks = if @filter.blank?
-               Task.all
+               user_tasks
              else
-               Task.where(category: @filter)
+               user_tasks.where(category: @filter).all
              end
     incomplete_task = @tasks.where(completed: false).order(priority: :desc, added: :asc)
+    @num_high = incomplete_task.where(priority: 3).count
+    @num_med = incomplete_task.where(priority: 2).count
+    @num_low = incomplete_task.where(priority: 1).count
     completed_tasks = @tasks.where(completed: true).order(:complete_time).reverse
     @tasks = incomplete_task + completed_tasks
     @num_incomplete = incomplete_task.count
-    @count = 0
+    @count = @sub_count = 0
     @completed = false
     @curr_categories = @all_categories
     @users = User.all

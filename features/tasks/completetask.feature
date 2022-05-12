@@ -18,6 +18,7 @@ Feature: Checking off Tasks
       | med priority           | med pri description 1  | Register    | 2        | 2001-01-01 | Roberto Cardenas |               |               | false     | 5 |
       | another done task      | someone did this       | Inventory   | 3        | 2001-01-01 | Roberto Cardenas |   2001-01-02  | Andrew Mo     | true      | 6 |
 
+    And the default settings
 
     When I start on the login page
     And I fill in "session_email" with "robertocardenas@bsfc.coop"

@@ -19,6 +19,7 @@ Feature: Editing Tasks
       | another done task      | someone did this       | Inventory   | 3        | 2001-01-01 | Roberto Cardenas |   2001-01-02  | Andrew Mo     | true      | 6 |
       | high priority 2        | high pri description 2 | Register    | 3        | 2001-01-01 | Roberto Cardenas |               |               | false     | 7 |
 
+    And the default settings
 
     When I start on the login page
     And I fill in "session_email" with "robertocardenas@bsfc.coop"
@@ -59,7 +60,7 @@ Feature: Editing Tasks
 
   Scenario: I can edit a task's priority
     When I tap the dots to edit "Count cash in register"
-    And I pick "Medium" as the priority on the edit task modal for the task with id "1"
+    And I pick "Low" as the priority on the edit task modal for the task with id "1"
     And I confirm "Edit Task" for the task with id "1"
     Then "high priority 2" should appear before "Count cash in register"
 

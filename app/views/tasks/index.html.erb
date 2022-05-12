@@ -3,17 +3,20 @@
   <!-- General Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-dark p-0">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="announcements">
         <%= link_to((image_tag "bsfc_logo.png", {:alt => "Berkeley Student Food Collective Logo", :width => 40, :height => 40}), announcements_path) %>
       </a>
       <small style="color: white;">Welcome <%= current_user.name %></small>
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="hamburger-menu" class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item text-end">
-            <%= link_to "Log Out", logout_path, method: :post, class: "nav-link text-light" %>
+            <%= button_to "Admin Settings", settings_path, method: :get, class: "nav-link text-light btn-danger" %>
+          </li>
+          <li class="nav-item text-end">
+            <%= button_to "Log Out", logout_path, class: "nav-link text-light btn-danger" %>
           </li>
         </ul>
       </div>
@@ -24,12 +27,14 @@
   <div>
     <!-- Switch between tabs -->
     <div class="dropdown w-100 px-1 border-bottom border-dark">
-      <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdown-nav" data-bs-toggle="dropdown" aria-expanded="false">
+      <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         Tasks
       </a>
-      <div class="dropdown-menu w-100" aria-labelledby="dropdown-nav">
-        <%= link_to "Announcements", announcements_path, class: "dropdown-item" %>
-      </div>
+      <ul class="dropdown-menu w-100 " style="box-shadow: 0 20px 20px grey" aria-labelledby="navigation-dropdown">
+        <li>
+          <%= link_to "Announcements", announcements_path, class: "dropdown-item fs-1 fw-bold" %>
+        </li>
+      </ul>
     </div>
 
     <!-- Select category and add task-->
@@ -85,10 +90,6 @@
               <%= label_tag :priority_low, 'Low', class: "form-check-label text-success" %>
             </div>
             <div class="form-check form-check-inline">
-              <%= radio_button_tag :priority, 2, false, class: "form-check-input" %>
-              <%= label_tag :priority_medium, 'Medium', class: "form-check-label text-warning" %>
-            </div>
-            <div class="form-check form-check-inline">
               <%= radio_button_tag :priority, 3, false, class: "form-check-input" %>
               <%= label_tag :priority_high, 'High', class: "form-check-label text-danger" %>
             </div>
@@ -101,23 +102,32 @@
     </div>
   </div>
 </div>
-
-<div class="center">
-  <h5>Incomplete Tasks</h5>
-</div>
+<% if @num_incomplete.positive? %>
+  <div class="center">
+    <h1>Incomplete Tasks</h1>
+  </div>
+<% end %>
 <% @tasks.each do |task| %>
   <% if @count == @num_incomplete && !@completed %>
     <% @count=0 %>
     <% @completed=true %>
     <div class="center">
-      <h5>Completed Tasks</h5>
+      <h1>Completed Tasks</h1>
+    </div>
+  <% end %>
+  <% unless @completed || !subsection?(@count, task.priority) %>
+    <div class="center">
+      <h5>
+        <%= incomplete_subsection @count, task.priority %>
+      </h5>
     </div>
   <% end %>
   <!-- Tasks div -->
   <div id="tasks-div" class="container">
     <!-- Task panel -->
-    <div id='task-panel-<%= task.name %>' class="task-panel row px-1 py-1 border-bottom px-1<%= @count == 0 ? " border-top" : "" %> border-dark">
+    <div id='task-panel-<%= task.name %>' class="task-panel row px-1 py-1 border-bottom px-1<%= @sub_count == 0 || @count == 0 ? " border-top" : "" %> border-dark">
       <% @count += 1 %>
+      <% @sub_count += 1 %>
       <!-- Checkbox -->
       <div class="col-1 d-flex flex-column justify-content-center align-items-center">
         <% if task.completed %>
@@ -152,11 +162,15 @@
         <% end %>
         <p class="fw-lighter small m-0">
           <small>
-            Posted by <%= task.user_add %> at <%= task.added.strftime('%I:%M %p %Z') %> on <%= task.added.strftime('%b %d %Y') %>
+            Posted by <%= task.user_add %> 
          </small></p>
         <p class="m-0">
           <small>
-            <%= task.description %>
+            <% if task.priority == 2 %>
+              <%= sanitize task.description %>
+            <% else %>
+              <%= task.description %>
+            <% end %>
           </small>
         </p>
       </div>
@@ -186,7 +200,11 @@
             <%= task.name %>
           </h5>
           <div class="d-flex justify-content-center">
-            <%= task.description %>
+            <% if task.priority == 2 %>
+              <%= sanitize task.description %>
+            <% else %>
+              <%= task.description %>
+            <% end %>
           </div>
           <div>&nbsp</div>
           <% if task.completed %>

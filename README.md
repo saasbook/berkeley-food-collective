@@ -6,27 +6,26 @@
 [![Bluejay Dashboard](https://img.shields.io/badge/Bluejay-Dashboard_BFC-blue.svg)](http://dashboard.bluejay.governify.io/dashboard/script/dashboardLoader.js?dashboardURL=https://reporter.bluejay.governify.io/api/v4/dashboards/tpa-CS169L-22-GH-saasbook_berkeley-food-collective/main)
 [![Pivotal Tracker](https://github.com/saasbook/berkeley-food-collective/blob/main/app/assets/images/pivotal_tracker_logo.png)](https://pivotaltracker.com/projects/2553424)
 
-Main staging server: https://berkeley-food-collective.herokuapp.com/
+## Main staging server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://berkeley-food-collective.herokuapp.com/
 
-Things you may want to cover:
+## Repository Setup
 
-* Ruby version
+- Fork the repository and clone it locally
+- Make sure you have Ruby version 3.0.3 installed and run `rvm use 3.0.3` to switch to it
+- Run `bundle install --without production` to install necessary gems
+- Setup and seed the database by running `rails db:migrate` and `rails db:seed`
 
-* System dependencies
 
-* Configuration
+## Run tests locally
 
-* Database creation
+- To run RSpec tests, run `bundle exec rspec`
+- To run Cucumber tests, run `bundle exec cucumber`
 
-* Database initialization
 
-* How to run the test suite
+## Deploy to Heroku
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- run `heroku create -a app-name` to create empty application Heroku
+- run `git add .` and `git commit -m "[message]"` to prepare local changes
+- run `git push heroku main` to push the code to Heroku
