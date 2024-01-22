@@ -55,7 +55,7 @@
       <p class="fw-lighter small m-0" style="line-height: 2;"><small>Posted by <%= announcement.audience %> </small></p>
       <p class="m-0" style="line-height: 1;">
         <small>
-          <b> Event Date: </b> <%= announcement.eventtime.strftime("%Y-%m-%d %I:%M %p %Z") %> <br>
+          <b> Event Date: </b> <%= announcement.eventtime&.strftime("%Y-%m-%d %I:%M %p %Z") %> <br>
           <b> Event Location: </b> <%= announcement.location %>
         </small>
       </p>
