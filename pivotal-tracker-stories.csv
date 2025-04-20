@@ -1,0 +1,76 @@
+Id,Title,Labels,Iteration,Iteration Start,Iteration End,Type,Estimate,Priority,Current State,Created at,Accepted at,Deadline,Requested By,Description,URL,Owned By,Owned By,Comment,Task,Task Status,Task,Task Status,Task,Task Status,Task,Task Status,Task,Task Status,Task,Task Status
+114988539,Workshift Manager: Set Semester Policies,"policy, set_policy.feature",1,"Apr 11, 2016","Apr 17, 2016",feature,2,p3 - Low,accepted,"Mar 3, 2016","Apr 15, 2016",,Maura Fitzgerald,"As a work-shift manager,
+In order to enforce policies for the semester,
+I would like to set fining dates, the start/end of semester, market sell-by, and fining rates on one page.",https://www.pivotaltracker.com/story/show/114988539,Giorgia Willits,,,,,,,,,,,,,,
+115538845,Workshift Manager: View and Edit Semester Policies,"policy, view_and_edit_policy_admin.feature",1,"Apr 11, 2016","Apr 17, 2016",feature,1,p3 - Low,accepted,"Mar 12, 2016","Apr 15, 2016",,Giorgia Willits,"As a work-shift manager,
+In order to enforce policies for the semester,
+I would like to view and edit fining dates, the start and end of the semester, market sell-by, and fining rates.",https://www.pivotaltracker.com/story/show/115538845,Giorgia Willits,,,,,,,,,,,,,,
+117117451,View Semester Policies,"policy, view_policy_member.feature",1,"Apr 11, 2016","Apr 17, 2016",feature,1,p3 - Low,accepted,"Apr 7, 2016","Apr 15, 2016",,Giorgia Willits,"As a coop member,
+In order to abide by the policies for the semester,
+I would like to view fining dates, the start and end of the semester, market sell-by, and fining rates.",https://www.pivotaltracker.com/story/show/117117451,Giorgia Willits,,,,,,,,,,,,,,
+114937663,View User Profile,"profile, user, view_profile_member.feature",1,"Apr 11, 2016","Apr 17, 2016",feature,2,p3 - Low,accepted,"Mar 3, 2016","Apr 15, 2016",,Alex Danilychev,"As a member of a coop,
+In order to stay on track with my workshift hours,
+I would like to view my edit balance, fine balance, shift assignment, and signoff history on one page.",https://www.pivotaltracker.com/story/show/114937663,Ryan Riddle,Giorgia Willits,,Create profile view,completed,Create link at top right of each page in header that links to this page (should be part of an outer template for each page),completed,"Show user information like hr, fine balances, work shift assignments, signoff history",completed,Write cucumber tests lol,completed,Check permissions (should all users be able to see each other? or just themselves?),completed,,
+116813901,Workshift Manager: View User Profile,"profile, user, view_profile_admin.feature",1,"Apr 11, 2016","Apr 17, 2016",feature,2,p3 - Low,accepted,"Apr 2, 2016","Apr 15, 2016",,Maura Fitzgerald,"As a workshift manager,
+In order to manage coop workshifts and stay on track of my own hours,
+I would like to view my information and be able to edit users and workshifts on one page.",https://www.pivotaltracker.com/story/show/116813901,Giorgia Willits,,,,,,,,,,,,,,
+114936991,Log in to the Application,log_in.feature,1,"Apr 11, 2016","Apr 17, 2016",feature,1,p3 - Low,accepted,"Mar 3, 2016","Apr 15, 2016",,Alex Danilychev,"As any user, with any set of permissions
+In order to view pages on the site that I have permissions for
+I want to be able to log in to the app.",https://www.pivotaltracker.com/story/show/114936991,Ryan Riddle,,"We should find 3rd party lib to make cookies/sessions easy (Alex Danilychev - Mar 3, 2016)",Create user model w/ permissions field,completed,Create credential-check method in controller to check log-in status of user (would redirect to login page if not logged in),completed,Create sign-in view,completed,,,,,,
+114937427,Workshift Manager: Add Users,"add_users.feature, user",1,"Apr 11, 2016","Apr 17, 2016",feature,2,p3 - Low,accepted,"Mar 3, 2016","Apr 15, 2016",,Alex Danilychev,"As a work-shift manager
+In order to ease the process of creating user accounts
+I want to be able to upload a csv file with all my members.",https://www.pivotaltracker.com/story/show/114937427,ERIC MICHAEL NELSON,,"require 'csv'    
+
+csv_text = File.read('...')
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+  User.create!(row.to_hash)
+end (Alex Danilychev - Mar 3, 2016)",Add link to Modify users page that asks user for file upload,completed,"Create method that streams CSV line by line, creating new user instance for each line",completed,Check permissions of work-shift manager (this should already be done by the Admin page),completed,Cucumber tests,completed,,,,
+117105177,Set and Edit User Preferences for Workshifts,"preferences, set_and_edit_shift_preferences.feature, user",1,"Apr 11, 2016","Apr 17, 2016",feature,2,p3 - Low,accepted,"Apr 6, 2016","Apr 16, 2016",,Giorgia Willits,"As a co-op member
+In order to be assigned shifts that I like
+I would like to be able to set and edit my shift preferences for the semester.",https://www.pivotaltracker.com/story/show/117105177,Giorgia Willits,ERIC MICHAEL NELSON,"lo-fi mockup (Giorgia Willits - Apr 7, 2016)",display table of workshift categories on the user preference view,completed,make the rows expandable to drop down and view specific workshifts,completed,add boxes for users to input their ranking (1-5),completed,"validate user input (must be 1/2/3/4/5) -> use js to check when the user types, if the value is less than min or greater than max",completed,add submit button and functionality (save user's preferences,completed,hide description on default and make it pop up on request,completed
+117742971,Edit User Profile,"edit_profile.feature, profile, user",1,"Apr 11, 2016","Apr 17, 2016",feature,2,p3 - Low,accepted,"Apr 15, 2016","Apr 16, 2016",,Giorgia Willits,"As a member of a coop,
+In order to update my account information,
+I would like to change my email and password.",https://www.pivotaltracker.com/story/show/117742971,Ryan Riddle,Giorgia Willits,,create edit profile view,completed,direct link to edit profile (on view profile page) to this view,completed,allow user to enter a new email and save,completed,allow user to enter a new password and save,not completed,make sure user must authorize when changing password by entering their old password,not completed,,
+117114095,Workshift Manager: Set User Access to Preference Page,"access_to_preferences.feature, preferences, user",1,"Apr 11, 2016","Apr 17, 2016",feature,1,p3 - Low,accepted,"Apr 7, 2016","Apr 16, 2016",,Giorgia Willits,"As a workshift manager
+In order to provide a way to stop users from editing their preferences
+I would like to be able to turn on and off their ability to edit",https://www.pivotaltracker.com/story/show/117114095,Ryan Riddle,,"lo-fi mockup (Giorgia Willits - Apr 7, 2016)",create the user preference page view,completed,add functionality for workshift manager to hide the page,completed,make sure the page can still be accessed by URL,completed,,,,,,
+115538875,Workshift Manager: Add Workshifts,"add_workshifts.feature, workshifts",1,"Apr 11, 2016","Apr 17, 2016",feature,3,p3 - Low,accepted,"Mar 12, 2016","Apr 16, 2016",,Maura Fitzgerald,"As a workshift manager,
+In order to set the types of shifts that my house needs completed,
+I would like to be able to upload a CSV file with the workshift information.",https://www.pivotaltracker.com/story/show/115538875,Maura Fitzgerald,,,"Upload CSV file to create ""Metashifts"" (categories of shifts)",completed,Reading off times from CSV file to create Shift objects,completed,,,,,,,,
+115540011,View Workshift Table,"view_workshifts.feature, workshifts",1,"Apr 11, 2016","Apr 17, 2016",feature,2,p3 - Low,accepted,"Mar 12, 2016","Apr 16, 2016",,Maura Fitzgerald,"As a user of any type,
+In order to learn more about a workshift,
+I would like to view the list of workshifts and select one to see more details.",https://www.pivotaltracker.com/story/show/115540011,Alex Danilychev,,,Use DataTable / other gem,completed,Incorporate into a Bootstrap layout,completed,Permission check for admin ,completed,,,,,,
+117116887,Workshift Manager: View and Edit Workshifts,"view_and_edit_workshifts_admin.feature, workshifts",1,"Apr 11, 2016","Apr 17, 2016",feature,1,p3 - Low,accepted,"Apr 7, 2016","Apr 16, 2016",,Giorgia Willits,"As a work-shift manager,
+In order to keep workshift information up-to-date and prevent changes by non-admins,
+I would like to view and edit workshift attributes.",https://www.pivotaltracker.com/story/show/117116887,Alex Danilychev,," (Giorgia Willits - Apr 7, 2016)",create workshift table view,completed,create edit workshift view,completed,prevent members from editing workshifts,completed,,,,,,
+117105465,Set and Edit User Preferences for Schedule,"preferences, set_and_edit_schedule_preferences.feature, user",2,"Apr 18, 2016","Apr 24, 2016",feature,2,p3 - Low,accepted,"Apr 6, 2016","Apr 18, 2016",,Giorgia Willits,"As a co-op member  
+In order to be assigned shifts at times that I can work
+I would like to be able to set and edit my schedule preferences for the semester.",https://www.pivotaltracker.com/story/show/117105465,Maura Fitzgerald,Yannie Yip," (Giorgia Willits - Apr 7, 2016)",add availability table to user preference view,completed,create model to store information about user schedules,completed,(maybe) validate if the user has filled out every box on form submission,not completed,,,,,,
+117117565,Sign-off a shift,"signoff_workshifts.feature, workshifts",471,"Apr 14, 2025","Apr 20, 2025",feature,2,p3 - Low,finished,"Apr 7, 2016",,,Giorgia Willits,"As a member of a coop,
+In order to get credit for the shifts I work,
+I would like to get signed off online by another member.",https://www.pivotaltracker.com/story/show/117117565,Giorgia Willits,,,,,,,,,,,,,,
+114935553,Workshift Manager: Assign Workshifts,"assignments_controller_spec.rb, controllers, spec",471,"Apr 14, 2025","Apr 20, 2025",feature,3,p3 - Low,finished,"Mar 3, 2016",,,Alex Danilychev,"As a work-shift manager
+In order for members to know when, where, and how they need to work,
+I would like to be able to assign members work-shifts for the entire semester.",https://www.pivotaltracker.com/story/show/114935553,Giorgia Willits,ERIC MICHAEL NELSON,"View can potentially be a calendar view, with the ability to set recurring events (think Google calendar events) as well as the ability to look at different timeranges (day, week, month maybe?) (Alex Danilychev - Mar 3, 2016)",Create view for semester's work shifts (maybe something akin to Google Calendar?),completed,Decide on schema for work-shifts that have been assigned,completed,Write cucumber tests,completed,Add route ,completed,Enforce permissions (members should not be able to access this page),not completed,,
+118040593,Workshift Manager: View Member Availability and Preference for Workshift,"models, spec, user_spec.rb",471,"Apr 14, 2025","Apr 20, 2025",feature,2,p3 - Low,finished,"Apr 20, 2016",,,Giorgia Willits,"As a workshift manager,
+In order to decide who I should assign to each workshift,
+I would like to see members ordered by availability and preference to work a workshift.",https://www.pivotaltracker.com/story/show/118040593,Giorgia Willits,,,write sorting algorithm based on preference and availability,completed,visually show each user's availability (colored),not completed,"create table on assign workshifts view to order by preference, availability, hours assigned",completed,,,,,,
+114935527,Workshift Manager: View All Users' Preferences,"view_user_preferences.feature, ws_manager",471,"Apr 14, 2025","Apr 20, 2025",feature,2,p3 - Low,finished,"Mar 3, 2016",,,Alex Danilychev,"As a work-shift manager
+In order to schedule the semester's shifts in a fair way
+I would like to be able to view  each of my members' work-shift and schedule preferences.",https://www.pivotaltracker.com/story/show/114935527,Ryan Riddle,Maura Fitzgerald,,Create view/layout for manager to see all preferences (per user),not completed,Write cucumber tests,not completed,Have view/layout enforce permissions (only work-shift manager should be able to access/edit this page),not completed,"Create user model (w/ permissions for member, manager, and work-shift manager)",not completed,,,,
+118065067,Workshift Manager: View and Edit All Users' Details,"view_and_edit_user_details.feature, ws_manager",471,"Apr 14, 2025","Apr 20, 2025",feature,1,p3 - Low,finished,"Apr 21, 2016",,,Maura Fitzgerald,"As a work-shift manager
+In order to keep my house's directory and contact information accurate
+I would like to be able to view and edit each of my member's profile details.",https://www.pivotaltracker.com/story/show/118065067,Maura Fitzgerald,Ryan Riddle,,Cuke tests,not completed,Show user's details already filled in,not completed,Allow edit mode to change form fields,not completed,Check access rights to only allow workshift managers to view this page,not completed,Optional: add in fields for directory details,not completed,,
+117951977,Up/down hours (calculation),"",,,,feature,2,p3 - Low,unscheduled,"Apr 19, 2016",,,Maura Fitzgerald,"As a work-shift manager 
+In order to enforce attendance of work-shifts
+I'd like automatic calculation of a member's up/down hours and corresponding fines.",https://www.pivotaltracker.com/story/show/117951977,,,,,,,,,,,,,,,
+117951831,Validate Form Fields,"",,,,feature,2,p3 - Low,unscheduled,"Apr 19, 2016",,,Maura Fitzgerald,"As a developer of the site
+In order to avoid type errors from invalid user inputs
+I would like validations on form fields",https://www.pivotaltracker.com/story/show/117951831,,,,Workshift form,not completed,Clear error from an invalid CSV form (user and workshift),not completed,User form,not completed,Policies Form,not completed,,,,
+114985997,Workshift Manager: Edit Weekly Schedule,"",,,,feature,2,p3 - Low,unscheduled,"Mar 3, 2016",,,Maura Fitzgerald,"As a work-shift manager
+I would like to be able to edit the weekly work-shift schedule
+So that I can make adjustments as conflicts arise",https://www.pivotaltracker.com/story/show/114985997,,,,,,,,,,,,,,,
+117952119,Up/down hours (view),"",,,,feature,1,p3 - Low,unscheduled,"Apr 19, 2016",,,Maura Fitzgerald,"As a member of a co-op
+In order to keep my fines to a minimum
+I would like to be able to view my up/down hours, missed shifts, and fine balance on my profile.",https://www.pivotaltracker.com/story/show/117952119,Giorgia Willits,,,,,,,,,,,,,,
